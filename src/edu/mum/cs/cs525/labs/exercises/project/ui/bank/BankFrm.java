@@ -1,15 +1,20 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.view.AddAccountDialog;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.view.MainFrame;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
 /**
  * A basic JFC based application.
  */
-public class BankFrm extends JFrame
+public class BankFrm extends MainFrame
 {
     /****
      * init variables in the object
@@ -203,6 +208,7 @@ public class BankFrm extends JFrame
 		*/
 		
 		JDialog_AddPAcc pac = new JDialog_AddPAcc(myframe);
+
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
@@ -295,8 +301,6 @@ public class BankFrm extends JFrame
 		       JOptionPane.showMessageDialog(JButton_Withdraw, " Account "+accnr+" : balance is negative: $"+String.valueOf(newamount)+" !","Warning: negative balance",JOptionPane.WARNING_MESSAGE);
 		    }
 		}
-		
-		
 	}
 	
 	void JButtonAddinterest_actionPerformed(ActionEvent event)
