@@ -15,7 +15,7 @@ public class DepositCommand implements Command {
     @Override
     public void execute() {
         System.out.println("Money has been deposited, amount: "+entity.getChangedDate());
-//        account.deposite(entity);
+//        account.deposit(entity);
     }
 
     @Override
