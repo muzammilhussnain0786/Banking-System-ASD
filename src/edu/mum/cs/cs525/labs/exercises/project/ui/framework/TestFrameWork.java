@@ -11,11 +11,18 @@ public class TestFrameWork {
         AccountDao accountDao = new AccountDao();
         accountDao.attach(new EmailSenderService());
 
-        Account account1 = new Account(1L,"me", "me", LocalDate.of(2021,7,7), LocalDate.of(2021,7,7), 11.0);
+        Account account1 = new ConcreteAccount(1L);
         accountDao.save(account1);
         accountDao.get(account1.getId());
         account1.setCurrentBalance(12);
         accountDao.update(account1);
         accountDao.get(account1.getId());
+    }
+}
+
+class ConcreteAccount extends Account  {
+
+    public ConcreteAccount(Long id) {
+        super(id);
     }
 }
