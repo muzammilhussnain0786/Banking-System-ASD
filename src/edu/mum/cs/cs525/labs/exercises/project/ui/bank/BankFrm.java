@@ -1,5 +1,10 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.bank.controller.BankController;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.BSFW;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.BaseEntity;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
@@ -9,14 +14,14 @@ import javax.swing.*;
 /**
  * A basic JFC based application.
  */
-public class BankFrm extends JFrame
-{
+public class BankFrm extends BSFW {
     /****
      * init variables in the object
      ****/
     String accountnr, clientName,street,city,zip,state,accountType,clientType,amountDeposit;
     boolean newaccount;
     private DefaultTableModel model;
+    BankController bankController;
     private JTable JTable1;
     private JScrollPane JScrollPane1;
     BankFrm myframe;
@@ -25,6 +30,8 @@ public class BankFrm extends JFrame
 	public BankFrm()
 	{
 		myframe = this;
+
+		bankController = new BankController();
 
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -166,8 +173,7 @@ public class BankFrm extends JFrame
 		}
 	}
 
-	class SymAction implements java.awt.event.ActionListener
-	{
+	class SymAction implements java.awt.event.ActionListener {
 		public void actionPerformed(ActionEvent event)
 		{
 			Object object = event.getSource();
@@ -268,6 +274,8 @@ public class BankFrm extends JFrame
             long currentamount = Long.parseLong(samount);
 		    long newamount=currentamount+deposit;
 		    model.setValueAt(String.valueOf(newamount),selection, 5);
+//			Account account = new Account(model.get);
+//			bankController.deposit(account);
 		}
 		
 		

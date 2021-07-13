@@ -1,27 +1,42 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank.controller;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.CommandControl;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.Controller;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.AddInterestCommand;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.DepositCommand;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.WithdrawCommand;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.BaseEntity;
 
 public class BankController extends Controller {
-    @Override
-    protected void deposit(BaseEntity entry, Account account) {
 
+    CommandControl commandControl;
+    public BankController(){
     }
 
     @Override
-    protected void withdraw(BaseEntity entry, Account account) {
-
+    public void deposit(BaseEntity entry, Account account) {
+        System.out.println("Depositing  "+account.getCurrentBalance());
+        commandControl = new CommandControl(new DepositCommand(account, entry));
+        commandControl.startCommandExecute();
     }
 
     @Override
-    protected void addInterest() {
-
+    public void withdraw(BaseEntity entry, Account account) {
+        System.out.println("Depositing  "+account.getCurrentBalance());
+        commandControl = new CommandControl(new WithdrawCommand(account, entry));
+        commandControl.startCommandExecute();
     }
 
     @Override
-    protected void addAccount(String ctype) {
+    public void addInterest() {
+        System.out.println("adding Interest  ");
+        commandControl = new CommandControl(new AddInterestCommand());
+        commandControl.startCommandExecute();
+    }
 
+    @Override
+    public void addAccount(Account account) {
+        System.out.println("adding Interest  ");
     }
 }

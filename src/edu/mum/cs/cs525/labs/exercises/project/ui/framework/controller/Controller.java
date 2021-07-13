@@ -18,6 +18,6 @@ public abstract class Controller {
 
 	protected abstract void addInterest();
 
-	protected abstract void addAccount(String ctype);
+	protected abstract void addAccount(Account account);
 
 }

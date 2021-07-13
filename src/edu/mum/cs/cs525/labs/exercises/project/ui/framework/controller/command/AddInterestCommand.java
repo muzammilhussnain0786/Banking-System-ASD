@@ -5,11 +5,11 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.BaseEntity;
 
 public class AddInterestCommand implements Command {
 
-    Account account;
-    BaseEntity entity;
-    public AddInterestCommand(Account account, BaseEntity entity){
-        this.account = account;
-        this.entity = entity;
+//    Account account;
+//    BaseEntity entity;
+    public AddInterestCommand(){
+//        this.account = account;
+//        this.entity = entity;
     }
 
     @Override

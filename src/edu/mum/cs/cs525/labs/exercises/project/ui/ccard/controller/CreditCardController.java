@@ -21,7 +21,7 @@ public class CreditCardController extends Controller {
     }
 
     @Override
-    protected void addAccount(String ctype) {
+    protected void addAccount(Account account) {
 
     }
 }

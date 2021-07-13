@@ -1,5 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.BSFW;
+
 import java.awt.BorderLayout;
 
 import javax.swing.JOptionPane;
@@ -11,8 +13,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  * A basic JFC based application.
  */
-public class CardFrm extends javax.swing.JFrame
-{
+public class CardFrm extends BSFW{
     /****
      * init variables in the object
      ****/
