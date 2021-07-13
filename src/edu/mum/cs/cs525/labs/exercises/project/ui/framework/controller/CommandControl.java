@@ -1,20 +1,18 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.Command;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.AbstractCommand;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.response.Response;
 
 public class CommandControl {
 
-    Command command;
-    public CommandControl(Command command){
-        this.command = command;
+    AbstractCommand abstractCommand;
+    public CommandControl(AbstractCommand abstractCommand){
+        this.abstractCommand = abstractCommand;
     }
 
-    public void startCommandExecute(){
-        command.execute();
+    public Response startCommandExecute(){
+        return abstractCommand.execute();
     }
 
-    public void startCommandUndo(){
-        command.undo();
-    }
 }
 

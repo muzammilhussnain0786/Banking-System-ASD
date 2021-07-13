@@ -1,9 +1,10 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.response.Response;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.BaseEntity;
 
-public class DepositCommand implements Command {
+public class DepositCommand extends AbstractCommand {
 
     Account account;
     BaseEntity entity;
@@ -13,13 +14,10 @@ public class DepositCommand implements Command {
     }
 
     @Override
-    public void execute() {
+    public Response execute() {
         System.out.println("Money has been deposited, amount: "+entity.getChangedDate());
 //        account.deposit(entity);
+        return null;
     }
 
-    @Override
-    public void undo() {
-        // todo undo operation goes here
-    }
 }

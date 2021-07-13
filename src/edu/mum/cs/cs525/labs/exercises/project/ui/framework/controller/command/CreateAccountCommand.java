@@ -1,8 +1,9 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.response.Response;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
 
-public class CreateAccountCommand implements Command {
+public class CreateAccountCommand extends AbstractCommand {
 //    BaseController controller;
     Account account;
 //    public CreateAccountCommand(BaseController controller, Account account){
@@ -11,13 +12,9 @@ public class CreateAccountCommand implements Command {
 //    }
 
     @Override
-    public void execute() {
+    public Response execute() {
         System.out.println("created a new customer");
 //        this.controller.createAccount(account);
-    }
-
-    @Override
-    public void undo() {
-
+        return null;
     }
 }
