@@ -17,9 +17,8 @@ public interface Observable {
 
 
     default void notifyObservers(Object data) {
-        observerHashmap.get(data.getClass())
-                .forEach(classObserver ->
-                classObserver.update(data)
+        List<Observer> observers = observerHashmap.get(data.getClass());
+        observers.forEach(classObserver -> classObserver.update(data)
     );
     }
 }

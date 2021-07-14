@@ -2,6 +2,8 @@ package edu.mum.cs.cs525.project.framework.accounts.facade;
 
 
 import edu.mum.cs.cs525.project.framework.accounts.Account;
+import edu.mum.cs.cs525.project.framework.accounts.AccountEntry;
+import edu.mum.cs.cs525.project.framework.accounts.AccountEntryInfo;
 import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
@@ -31,9 +33,11 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 
 	public void deposit(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
-		account.deposit(amount);
+		AccountEntry entry = account.deposit(amount);
 		accountDAO.updateAccount(account);
 		this.notifyObservers(account);
+		AccountEntryInfo data = new AccountEntryInfo(account, entry);
+		this.notifyObservers(data);
 	}
 
 	public Account getAccount(String accountNumber) {
@@ -47,9 +51,10 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 
 	public void withdraw(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
-		account.withdraw(amount);
+		AccountEntry entry = account.withdraw(amount);
 		accountDAO.updateAccount(account);
 		this.notifyObservers(account);
+		this.notifyObservers(new AccountEntryInfo(account, entry));
 	}
 
 

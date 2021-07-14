@@ -55,14 +55,16 @@ public class Account implements Serializable, TableRow {
 		return balance;
 	}
 
-	public void deposit(double amount) {
+	public AccountEntry deposit(double amount) {
 		AccountEntry entry = new AccountEntry(amount, "deposit", "", "");
 		addEntry(entry);
+		return entry;
 	}
 
-	public void withdraw(double amount) {
+	public AccountEntry withdraw(double amount) {
 		AccountEntry entry = new AccountEntry(-amount, "withdraw", "", "");
 		addEntry(entry);
+		return entry;
 	}
 
 	private void addEntry(AccountEntry entry) {
