@@ -7,15 +7,23 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.adapter.JT
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.composite.*;
 
 import javax.swing.*;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ViewsCollector implements Visitor{
+public class ViewsGeneratorVisitor implements Visitor{
+    private Map<String, JComponent> viewsHashmap = new HashMap<>();
     JComponent parent;
 
-    public ViewsCollector() {
+    public ViewsGeneratorVisitor() {
     }
 
-    public ViewsCollector(JComponent parent) {
+    public ViewsGeneratorVisitor(JComponent parent, Map<String, JComponent> viewsHashmap) {
         this.parent = parent;
+        this.viewsHashmap = viewsHashmap;
+    }
+
+    public ViewsGeneratorVisitor(Map<String, JComponent> viewsHashmap) {
+        this.viewsHashmap = viewsHashmap;
     }
 
     @Override
@@ -25,7 +33,9 @@ public class ViewsCollector implements Visitor{
 
     @Override
     public void visit(JButtonView view) {
-        parent.add(new JButtonAdapter(view));
+        JComponent button = new JButtonAdapter(view);
+        parent.add(button);
+        this.viewsHashmap.put(view.getId(), button);
     }
 
     @Override
@@ -36,7 +46,9 @@ public class ViewsCollector implements Visitor{
         }else{
             parent = jPanel;
         }
-        view.getViews().forEach(childView -> childView.accept(new ViewsCollector(jPanel)));
+        this.viewsHashmap.put(view.getId(), jPanel);
+        view.getViews().forEach(childView -> childView.accept(new ViewsGeneratorVisitor(jPanel, viewsHashmap)));
+
     }
 
     @Override
@@ -47,12 +59,15 @@ public class ViewsCollector implements Visitor{
         }else{
             parent = jscrollPanel;
         }
-        view.getViews().forEach(jTableView -> jTableView.accept(new ViewsCollector(jscrollPanel.getViewport())));
+        this.viewsHashmap.put(view.getId(), jscrollPanel);
+        view.getViews().forEach(jTableView -> jTableView.accept(new ViewsGeneratorVisitor(jscrollPanel.getViewport(), viewsHashmap)));
     }
 
     @Override
     public void visit(JTableView view) {
-        parent.add(new JTableAdapter(view));
+        JTableAdapter table = new JTableAdapter(view);
+        parent.add(table);
+        this.viewsHashmap.put(view.getId(), table);
     }
 
     public JComponent getParent() {

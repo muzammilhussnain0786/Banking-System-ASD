@@ -23,4 +23,9 @@ public class BankUI extends GuiForm {
     public String loadJsonFile() throws IOException, URISyntaxException {
         return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/bankui.json")).toURI()));
     }
+
+    @Override
+    public void setUIListeners() {
+        ((JButton) findViewById("exit")).addActionListener(event -> exitApplication());
+    }
 }

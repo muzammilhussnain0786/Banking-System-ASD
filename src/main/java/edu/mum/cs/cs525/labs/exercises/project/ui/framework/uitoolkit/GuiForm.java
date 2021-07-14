@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.composite.JPanelView;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.composite.View;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.visitor.ViewsCollector;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.visitor.ViewsGeneratorVisitor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,7 @@ public abstract class GuiForm extends JFrame {
 
     JPanel jPanel;
 
-    Map<String, View> viewsHashmap = new HashMap<>();
+    Map<String, JComponent> viewsHashmap = new HashMap<>();
 
 
     public GuiForm() {
@@ -47,15 +47,19 @@ public abstract class GuiForm extends JFrame {
         viewComposite = gson.fromJson(json, JPanelView.class);
 
         inflateViews();
+
+        setUIListeners();
     }
 
     public abstract String loadJsonFile() throws IOException, URISyntaxException;
 
-    public void inflateViews(){
-        ViewsCollector viewsCollector = new ViewsCollector();
-        viewComposite.accept(viewsCollector);
+    public abstract void setUIListeners();
 
-        jPanel = (JPanel) viewsCollector.getParent();
+    private void inflateViews(){
+        ViewsGeneratorVisitor viewsGeneratorVisitor = new ViewsGeneratorVisitor(viewsHashmap);
+        viewComposite.accept(viewsGeneratorVisitor);
+
+        jPanel = (JPanel) viewsGeneratorVisitor.getParent();
 
         setTitle(viewComposite.getTitle());
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -83,6 +87,10 @@ public abstract class GuiForm extends JFrame {
             e.printStackTrace();
         }
         setVisible(true);
+    }
+
+    public JComponent findViewById(String id){
+        return viewsHashmap.get(id);
     }
 
 
