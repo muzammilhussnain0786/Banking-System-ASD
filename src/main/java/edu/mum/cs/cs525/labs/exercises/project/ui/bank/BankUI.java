@@ -36,5 +36,13 @@ public class BankUI extends GuiForm {
             AddCAccPopup accPopup = new AddCAccPopup();
             accPopup.start();
         });
+        ((JButton) findViewById("withdraw_btn")).addActionListener(e -> {
+            WithDrawPopup accPopup = new WithDrawPopup();
+            accPopup.start();
+        });
+        ((JButton) findViewById("deposit_btn")).addActionListener(e -> {
+            DepositPopup accPopup = new DepositPopup();
+            accPopup.start();
+        });
     }
 }
