@@ -9,5 +9,7 @@ public interface Visitor {
     void visit(JPanelView view);
     void visit(JScrollPanelView view);
     void visit(JTableView view);
+    void visit(JTextFieldView view);
+    void visit(JLabelView view);
 
 }

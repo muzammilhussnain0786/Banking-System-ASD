@@ -1,9 +1,6 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.visitor;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.adapter.JButtonAdapter;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.adapter.JPanelAdapter;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.adapter.JScrollPanelAdapter;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.adapter.JTableAdapter;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.adapter.*;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.composite.*;
 
 import javax.swing.*;
@@ -68,6 +65,20 @@ public class ViewsGeneratorVisitor implements Visitor{
         JTableAdapter table = new JTableAdapter(view);
         parent.add(table);
         this.viewsHashmap.put(view.getId(), table);
+    }
+
+    @Override
+    public void visit(JTextFieldView view) {
+        JTextFieldAdapter textField = new JTextFieldAdapter(view);
+        parent.add(textField);
+        this.viewsHashmap.put(view.getId(), textField);
+    }
+
+    @Override
+    public void visit(JLabelView view) {
+        JLabelAdapter label = new JLabelAdapter(view);
+        parent.add(label);
+        this.viewsHashmap.put(view.getId(), label);
     }
 
     public JComponent getParent() {
