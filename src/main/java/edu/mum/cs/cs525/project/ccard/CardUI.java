@@ -25,4 +25,9 @@ public class CardUI extends GuiForm {
         ((JButton) findViewById("exit")).addActionListener(event -> exitApplication());
     }
 
+    @Override
+    public void hook() {
+
+    }
+
 }

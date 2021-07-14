@@ -50,7 +50,7 @@ public class BankUI extends GuiForm {
     }
 
     @Override
-    public void setUpObservers() {
+    public void hook() {
         DatabaseAccountService.getInstance().attach(((Observer<Account>) findViewById("acc_table")));
     }
 }
