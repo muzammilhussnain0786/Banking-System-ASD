@@ -1,10 +1,11 @@
-package edu.mum.cs.cs525.labs.exercises.project.ui.bank.model;
+package edu.mum.cs.cs525.labs.exercises.project.ui.ccard.model;
 
-public class CheckingAccount extends BankingAccount {
+public class GoldAccount extends CreditAccount {
 
-    private Double interest = 0.01;
+    private Double interest = 0.14;
+    private Double minimumPayment = 0.12;
 
-    public CheckingAccount(Long accountNumber) {
+    public GoldAccount(String accountNumber) {
         setId(accountNumber);
     }
 
@@ -21,6 +22,11 @@ public class CheckingAccount extends BankingAccount {
 
     @Override
     public String getAccountType() {
-        return CHECKING_TYPE;
+        return SILVER;
+    }
+
+    @Override
+    public double getMp() {
+        return minimumPayment;
     }
 }

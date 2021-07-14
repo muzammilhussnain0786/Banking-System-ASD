@@ -1,7 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard.model;
 
 public abstract class CreditAccountFactory {
-    public static CreditAccount createAccount(String accountType, Long id) {
+    public static CreditAccount createAccount(String accountType, String id) {
         if (accountType.equals(CreditAccount.GOLD))
             return new GoldAccount(id);
         else if (accountType.equals(CreditAccount.SILVER))

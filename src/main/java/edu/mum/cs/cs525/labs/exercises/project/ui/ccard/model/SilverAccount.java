@@ -1,12 +1,12 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard.model;
 
-public class BronzeAccount extends CreditAccount {
+public class SilverAccount extends CreditAccount {
 
-    private Double interest = 0.20;
-    private Double minimumPayment = 0.22;
+    private Double interest = 0.18;
+    private Double minimumPayment = 0.14;
 
-    public BronzeAccount(Long accountNUmber) {
-        setId(accountNUmber);
+    public SilverAccount(String accountNumber) {
+        setId(accountNumber);
     }
 
     @Override
@@ -22,11 +22,11 @@ public class BronzeAccount extends CreditAccount {
 
     @Override
     public String getAccountType() {
-        return BRONZE;
+        return SILVER;
     }
 
     @Override
-    public double getMP() {
+    public double getMp() {
         return minimumPayment;
     }
 }

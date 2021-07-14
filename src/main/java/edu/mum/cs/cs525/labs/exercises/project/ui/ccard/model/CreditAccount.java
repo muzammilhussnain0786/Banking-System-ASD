@@ -7,20 +7,20 @@ public abstract class CreditAccount extends Account {
     public static final String SILVER = "Silver";
     public static final String BRONZE = "Bronze";
 
-    private Long creditAccountNumber;
+    private String creditAccountNumber;
 
     @Override
-    public Long getId() {
+    public String getId() {
         return creditAccountNumber;
     }
 
     @Override
-    public void setId(Long creditAccountNumber) {
+    public void setId(String creditAccountNumber) {
         this.creditAccountNumber = creditAccountNumber;
         super.setId(creditAccountNumber);
     }
 
-    public void setCreditAccountNumber(Long creditAccountNumber) {
+    public void setCreditAccountNumber(String creditAccountNumber) {
         setId(creditAccountNumber);
     }
 }

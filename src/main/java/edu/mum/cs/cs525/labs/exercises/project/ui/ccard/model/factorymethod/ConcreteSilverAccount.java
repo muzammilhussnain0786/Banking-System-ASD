@@ -5,7 +5,7 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.ccard.model.SilverAccount;
 
 public class ConcreteSilverAccount extends CreditAccountFactory {
     @Override
-    public CreditAccount createAccount(Long id) {
+    public CreditAccount createAccount(String id) {
         return new SilverAccount(id);
     }
 }

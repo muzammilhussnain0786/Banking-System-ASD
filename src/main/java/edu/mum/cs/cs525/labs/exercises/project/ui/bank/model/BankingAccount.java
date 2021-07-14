@@ -6,18 +6,18 @@ public abstract class BankingAccount extends Account {
     public static final String SAVING_TYPE  = "Saving";
     public static final String CHECKING_TYPE = "Checking";
 
-    private Long accountNumber;
+    private String accountNumber;
 
-    public Long getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(Long accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         setId(accountNumber);
     }
 
     @Override
-    public void setId(Long accountNumber) {
+    public void setId(String accountNumber) {
         this.accountNumber = accountNumber;
         super.setId(accountNumber);
     }
