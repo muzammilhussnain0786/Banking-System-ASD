@@ -217,11 +217,9 @@ public class BankFrm extends JFrame
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
             newaccount=false;
-        }
 
-       
-        
-    }
+        }
+	}
 
 	void JButtonCompAC_actionPerformed(ActionEvent event)
 	{
