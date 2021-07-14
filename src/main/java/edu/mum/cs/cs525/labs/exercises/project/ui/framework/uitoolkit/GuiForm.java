@@ -65,7 +65,7 @@ public abstract class GuiForm extends JFrame {
         setSize(viewComposite.getWidth().intValue(),viewComposite.getHeight().intValue());
         setVisible(false);
         getContentPane().add(BorderLayout.CENTER, jPanel);
-        jPanel.setBounds(0,0,575,310);
+        jPanel.setBounds(0,0,viewComposite.getWidth().intValue(),viewComposite.getHeight().intValue());
     }
 
     @Override
