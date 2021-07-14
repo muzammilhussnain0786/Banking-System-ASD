@@ -1,40 +1,49 @@
  {
    "id" : "main_panel",
    "type" : "JPanel",
-    "width" : 283,
-    "height" : 340,
+    "width" : 400,
+    "height" : 410,
     "x":0,
     "y": 0,
     "children" : [
       {
-        "id" : "checking_radio",
+        "id" : "gold_radio",
         "type" : "JRadioButton",
-        "title" : "Checkings",
+        "title" : "Gold",
         "x":36,
-        "y": 12,
-        "width" : 200,
+        "y": 10,
+        "width" : 100,
         "height" : 24
       },
       {
-        "id" : "savings_radio",
+        "id" : "silver_radio",
         "type" : "JRadioButton",
-        "title" : "Savings",
-        "x":36,
-        "y": 36,
+        "title" : "Silver",
+        "x":136,
+        "y": 10,
         "width" : 124,
         "height" : 24
       },
       {
-        "id" : "accNumber",
+        "id" : "bronze_radio",
+        "type" : "JRadioButton",
+        "title" : "Bronze",
+        "x":272,
+        "y": 10,
+        "width" : 124,
+        "height" : 24
+      },
+      {
+        "id" : "id_label",
         "type" : "JLabel",
-        "title" : "Account Nr",
+        "title" : "ID",
         "x":12,
         "y": 60,
         "width" : 84,
         "height" : 24
       },
       {
-        "id" : "txtAccNumber",
+        "id" : "id_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
@@ -43,7 +52,7 @@
         "height" : 20
       },
       {
-        "id" : "name",
+        "id" : "name_label",
         "type" : "JLabel",
         "title" : "Name",
         "x":12,
@@ -52,7 +61,7 @@
         "height" : 24
       },
       {
-        "id" : "txtName",
+        "id" : "name_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
@@ -61,11 +70,29 @@
         "height" : 20
       },
       {
+        "id" : "customer_type",
+        "type" : "JLabel",
+        "title" : "Customer Type",
+        "x":12,
+        "y": 108,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "customer_type_tf",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 108,
+        "width" : 156,
+        "height" : 20
+      },
+      {
         "id" : "street",
         "type" : "JLabel",
         "title" : "Street",
         "x":12,
-        "y": 108,
+        "y": 132,
         "width" : 84,
         "height" : 24
       },
@@ -74,7 +101,7 @@
         "type" : "JTextField",
         "title" : "",
         "x": 120,
-        "y": 108,
+        "y": 132,
         "width" : 156,
         "height" : 20
       },
@@ -83,7 +110,7 @@
         "type" : "JLabel",
         "title" : "City",
         "x":12,
-        "y": 132,
+        "y": 156,
         "width" : 84,
         "height" : 24
       },
@@ -92,7 +119,7 @@
         "type" : "JTextField",
         "title" : "",
         "x": 120,
-        "y": 132,
+        "y": 156,
         "width" : 156,
         "height" : 20
       },
@@ -101,7 +128,7 @@
         "type" : "JLabel",
         "title" : "State",
         "x":12,
-        "y": 156,
+        "y": 180,
         "width" : 84,
         "height" : 24
       },
@@ -110,7 +137,7 @@
         "type" : "JTextField",
         "title" : "",
         "x": 120,
-        "y": 156,
+        "y": 180,
         "width" : 156,
         "height" : 20
       },
@@ -119,30 +146,12 @@
         "type" : "JLabel",
         "title" : "Zip",
         "x":12,
-        "y": 180,
-        "width" : 84,
-        "height" : 24
-      },
-      {
-        "id" : "txtZip",
-        "type" : "JTextField",
-        "title" : "",
-        "x": 120,
-        "y": 180,
-        "width" : 156,
-        "height" : 20
-      },
-      {
-        "id" : "noOfEmp",
-        "type" : "JLabel",
-        "title" : "No of employees",
-        "x":12,
         "y": 204,
         "width" : 200,
         "height" : 24
       },
       {
-        "id" : "txtNoOfEmp",
+        "id" : "txtZip",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
@@ -169,11 +178,29 @@
         "height" : 20
       },
       {
+        "id" : "expDate",
+        "type" : "JLabel",
+        "title" : "Exp Date",
+        "x":12,
+        "y": 252,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtExpDate",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 252,
+        "width" : 156,
+        "height" : 20
+      },
+      {
         "id" : "btnOk",
         "type" : "JButton",
         "title" : "OK",
         "x" : 48,
-        "y" : 264,
+        "y" : 300,
         "width":96,
         "height": 33
       },
@@ -182,7 +209,7 @@
         "type" : "JButton",
         "title" : "Cancel",
         "x" : 156,
-        "y" : 264,
+        "y" : 300,
         "width":96,
         "height": 33
       }
