@@ -6,5 +6,4 @@ public class PersonalCustomer extends Owner {
     public PersonalCustomer(String name) {
         super(name);
     }
-
 }
