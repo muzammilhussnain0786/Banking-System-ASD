@@ -15,8 +15,6 @@ import java.util.Objects;
 public class BankUI extends GuiForm {
 
 
-
-
     public BankUI() {
         super();
     }
@@ -25,16 +23,4 @@ public class BankUI extends GuiForm {
     public String loadJsonFile() throws IOException, URISyntaxException {
         return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/bankui.json")).toURI()));
     }
-
-    @Override
-    public void createView() {
-
-    }
-
-    @Override
-    protected void onSetSize(int width, int height) {
-
-    }
-
-
 }

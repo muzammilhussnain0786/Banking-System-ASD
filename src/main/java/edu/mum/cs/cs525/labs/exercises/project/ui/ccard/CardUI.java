@@ -19,13 +19,4 @@ public class CardUI extends GuiForm {
         return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/cardui.json")).toURI()));
     }
 
-    @Override
-    public void createView() {
-
-    }
-
-    @Override
-    protected void onSetSize(int width, int height) {
-
-    }
 }

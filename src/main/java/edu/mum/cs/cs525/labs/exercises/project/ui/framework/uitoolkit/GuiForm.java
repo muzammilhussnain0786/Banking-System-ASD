@@ -51,8 +51,6 @@ public abstract class GuiForm extends JFrame {
 
     public abstract String loadJsonFile() throws IOException, URISyntaxException;
 
-    public abstract void createView();
-
     public void inflateViews(){
         ViewsCollector viewsCollector = new ViewsCollector();
         viewComposite.accept(viewsCollector);
@@ -67,14 +65,6 @@ public abstract class GuiForm extends JFrame {
         getContentPane().add(BorderLayout.CENTER, jPanel);
         jPanel.setBounds(0,0,viewComposite.getWidth().intValue(),viewComposite.getHeight().intValue());
     }
-
-    @Override
-    public void setSize(int width, int height) {
-        super.setSize(width, height);
-        onSetSize(width, height);
-    }
-
-    protected abstract void onSetSize(int width, int height);
 
     protected void exitApplication(){
         try {
