@@ -4,7 +4,7 @@ import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class BankingFramework {
+public class FrameworkEntryPoint {
 
 
     public static void run(Class<?> classGuiForm, String[] args) {
