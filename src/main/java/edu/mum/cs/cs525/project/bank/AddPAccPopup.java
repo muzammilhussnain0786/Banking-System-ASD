@@ -33,12 +33,15 @@ public class AddPAccPopup extends GuiForm {
         ((JButton) findViewById("btnCancel")).addActionListener(event -> exitApplication());
         ((JButton) findViewById("btnOk")).addActionListener(event -> {
             createAccount();
+            exitApplication();
         });
     }
 
     private void createAccount(){
         JTextField txtAccNumber = (JTextField) findViewById("txtAccNumber");
+
         JRadioButton checking_radio = (JRadioButton) findViewById("checking_radio");
+
         Account account = null;
         if (checking_radio.isSelected()){
            account =  new CheckingAccount(txtAccNumber.getText(), new CheckingAccountInterestBehaviour());

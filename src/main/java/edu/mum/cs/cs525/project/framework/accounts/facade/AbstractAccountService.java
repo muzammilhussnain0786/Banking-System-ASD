@@ -28,7 +28,7 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	public Account createAccount(Account account) {
 
 		accountDAO.saveAccount(account);
-		
+		this.notifyObservers(account);
 		return account;
 	}
 

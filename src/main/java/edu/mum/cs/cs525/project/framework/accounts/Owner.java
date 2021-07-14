@@ -7,6 +7,7 @@ import java.util.List;
 public class Owner implements Serializable {
 	private String id;
 	private String name;
+
 	private List<Account> accounts = new ArrayList<>();
 
 	public Owner(String name) {

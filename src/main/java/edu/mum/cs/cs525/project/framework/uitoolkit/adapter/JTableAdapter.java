@@ -26,5 +26,8 @@ public class JTableAdapter extends JTable implements Observer<Account> {
     @Override
     public void update(Account data) {
         //((TableRow) data)
+        //["AccountNr", "Name", "City", "P/C", "Ch/S", "Amount"]
+        model.addRow(new Object[]{data.getAccountNumber()});
+        model.fireTableDataChanged();
     }
 }
