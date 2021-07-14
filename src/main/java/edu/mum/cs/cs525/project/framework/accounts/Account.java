@@ -2,6 +2,7 @@ package edu.mum.cs.cs525.project.framework.accounts;
 
 
 import edu.mum.cs.cs525.project.framework.accounts.strategy.BalanceBehaviour;
+import edu.mum.cs.cs525.project.framework.accounts.strategy.EmptyBalanceBehaviour;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +20,11 @@ public class Account {
 	public Account(String accountNumber, BalanceBehaviour balanceBehaviour) {
 		this.accountNumber = accountNumber;
 		this.balanceBehaviour = balanceBehaviour;
+	}
+
+	public Account(String accountNumber) {
+		this.accountNumber = accountNumber;
+		this.balanceBehaviour = new EmptyBalanceBehaviour();
 	}
 
 	public String getAccountNumber() {
