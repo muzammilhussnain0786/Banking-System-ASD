@@ -1,7 +1,6 @@
 package edu.mum.cs.cs525.project.framework.uitoolkit;
 
 import com.google.gson.*;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.composite.*;
 import edu.mum.cs.cs525.project.framework.uitoolkit.composite.*;
 
 import java.lang.reflect.Type;

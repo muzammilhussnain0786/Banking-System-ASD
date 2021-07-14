@@ -1,8 +1,9 @@
 package edu.mum.cs.cs525.project.framework.accounts;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class AccountEntry {
+public class AccountEntry implements Serializable {
 	private Date date;
 	private double amount;
 	private String description;

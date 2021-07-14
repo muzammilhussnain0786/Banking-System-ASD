@@ -1,6 +1,5 @@
 package edu.mum.cs.cs525.project.framework.uitoolkit.visitor;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.composite.*;
 import edu.mum.cs.cs525.project.framework.uitoolkit.composite.*;
 
 public interface Visitor {

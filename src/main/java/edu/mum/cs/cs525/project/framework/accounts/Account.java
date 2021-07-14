@@ -4,18 +4,19 @@ package edu.mum.cs.cs525.project.framework.accounts;
 import edu.mum.cs.cs525.project.framework.accounts.strategy.BalanceBehaviour;
 import edu.mum.cs.cs525.project.framework.accounts.strategy.EmptyBalanceBehaviour;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Account {
+public class Account implements Serializable {
 	private Owner owner;
 
 	private String accountNumber;
 
 	private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
 
-	BalanceBehaviour balanceBehaviour;
+	transient BalanceBehaviour balanceBehaviour;
 
 	public Account(String accountNumber, BalanceBehaviour balanceBehaviour) {
 		this.accountNumber = accountNumber;
