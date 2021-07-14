@@ -36,11 +36,6 @@ public class AddPAccPopup extends GuiForm {
         });
     }
 
-    @Override
-    public void setUpObservers() {
-
-    }
-
     private void createAccount(){
         JTextField txtAccNumber = (JTextField) findViewById("txtAccNumber");
         JRadioButton checking_radio = (JRadioButton) findViewById("checking_radio");
