@@ -67,5 +67,8 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 		accounts.forEach(account -> account.executeBalanceBehaviour(description));
 	}
 
+	@Override
+	public void generateReports() {
 
+	}
 }

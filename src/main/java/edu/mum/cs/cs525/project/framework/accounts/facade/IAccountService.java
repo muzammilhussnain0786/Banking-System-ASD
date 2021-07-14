@@ -16,4 +16,5 @@ public interface IAccountService {
     void withdraw (String accountNumber, double amount);
     void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description);
     void executeBalanceBehaviour(String description);
+    void generateReports();
 }
