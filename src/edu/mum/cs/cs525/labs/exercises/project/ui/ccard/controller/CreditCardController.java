@@ -1,28 +1,39 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard.controller;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.CommandControl;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.Controller;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.AddInterestCommand;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.DepositCommand;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.WithdrawCommand;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.BaseEntity;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Entity;
 
 public class CreditCardController extends Controller {
-    @Override
-    protected void deposit(Entity entry, Account account) {
+    CommandControl commandControl;
 
+    @Override
+    public void deposit(Entity entry, Account account) {
+        System.out.println("Credit Card Depositing  " + account.getCurrentBalance());
+        commandControl = new CommandControl(new DepositCommand(account, entry));
+        commandControl.startCommandExecute();
     }
 
     @Override
-    protected void withdraw(Entity entry, Account account) {
-
+    public void withdraw(Entity entry, Account account) {
+        System.out.println("Credit Card Withdrawing  " + account.getCurrentBalance());
+        commandControl = new CommandControl(new WithdrawCommand(account, entry));
+        commandControl.startCommandExecute();
     }
 
     @Override
-    protected void addInterest() {
-
+    public void addInterest() {
+        System.out.println("Credit Card adding Interest  ");
+        commandControl = new CommandControl(new AddInterestCommand());
+        commandControl.startCommandExecute();
     }
 
     @Override
-    protected void addAccount(Account account) {
-
+    public void addAccount(Account account) {
+        System.out.println("Credit Card adding new Account  ");
     }
 }

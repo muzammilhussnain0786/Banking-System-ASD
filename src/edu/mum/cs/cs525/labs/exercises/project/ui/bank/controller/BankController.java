@@ -17,27 +17,27 @@ public class BankController extends Controller {
 
     @Override
     public void deposit(Entity entry, Account account) {
-        System.out.println("Depositing  " + account.getCurrentBalance());
+        System.out.println("Bank Depositing  " + account.getCurrentBalance());
         commandControl = new CommandControl(new DepositCommand(account, entry));
         commandControl.startCommandExecute();
     }
 
     @Override
     public void withdraw(Entity entry, Account account) {
-        System.out.println("Withdrawing  " + account.getCurrentBalance());
+        System.out.println("Bank Withdrawing  " + account.getCurrentBalance());
         commandControl = new CommandControl(new WithdrawCommand(account, entry));
         commandControl.startCommandExecute();
     }
 
     @Override
     public void addInterest() {
-        System.out.println("adding Interest  ");
+        System.out.println("Bank adding Interest  ");
         commandControl = new CommandControl(new AddInterestCommand());
         commandControl.startCommandExecute();
     }
 
     @Override
     public void addAccount(Account account) {
-        System.out.println("adding Interest  ");
+        System.out.println("Bank adding new Account  ");
     }
 }

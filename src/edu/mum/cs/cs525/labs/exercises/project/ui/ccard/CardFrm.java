@@ -1,14 +1,14 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.ccard.controller.CreditCardController;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.BSFW;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Entity;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.time.LocalDate;
 
 /**
  * A basic JFC based application.
@@ -24,10 +24,13 @@ public class CardFrm extends BSFW{
     private JScrollPane JScrollPane1;
     CardFrm thisframe;
     private Object rowdata[];
-    
+
+	CreditCardController ccController;
 	public CardFrm()
 	{
 		thisframe=this;
+
+		ccController = new CreditCardController();
 		
 		setTitle("Credit-card processing Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
@@ -242,6 +245,13 @@ public class CardFrm extends BSFW{
             long currentamount = Long.parseLong(samount);
 		    long newamount=currentamount+deposit;
 		    model.setValueAt(String.valueOf(newamount),selection, 4);
+
+			// depositing money
+			Entity entity = new Entity(1234L, "kidus", "kmt", LocalDate.now(), LocalDate.now(), newamount);
+			Account account = new Account();
+			account.setId("sadf");
+			account.setCurrentBalance(newamount);
+			ccController.deposit(entity, account);
 		}
 		
 		
@@ -268,6 +278,13 @@ public class CardFrm extends BSFW{
 		    if (newamount <0){
 		       JOptionPane.showMessageDialog(JButton_Withdraw, " "+name+" Your balance is negative: $"+String.valueOf(newamount)+" !","Warning: negative balance",JOptionPane.WARNING_MESSAGE);
 		    }
+
+			// withdrawing money
+			Entity entity = new Entity(1234L, "kidus", "kmt",LocalDate.now(), LocalDate.now(), newamount);
+			Account account = new Account();
+			account.setId("accnr");
+			account.setCurrentBalance(newamount);
+			ccController.withdraw(entity, account);
 		}
 		
 		
