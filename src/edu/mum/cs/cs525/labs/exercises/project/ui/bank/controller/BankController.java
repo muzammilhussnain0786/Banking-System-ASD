@@ -6,24 +6,25 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.A
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.DepositCommand;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.WithdrawCommand;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.BaseEntity;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Entity;
 
 public class BankController extends Controller {
 
     CommandControl commandControl;
-    public BankController(){
+
+    public BankController() {
     }
 
     @Override
-    public void deposit(BaseEntity entry, Account account) {
-        System.out.println("Depositing  "+account.getCurrentBalance());
+    public void deposit(Entity entry, Account account) {
+        System.out.println("Depositing  " + account.getCurrentBalance());
         commandControl = new CommandControl(new DepositCommand(account, entry));
         commandControl.startCommandExecute();
     }
 
     @Override
-    public void withdraw(BaseEntity entry, Account account) {
-        System.out.println("Depositing  "+account.getCurrentBalance());
+    public void withdraw(Entity entry, Account account) {
+        System.out.println("Depositing  " + account.getCurrentBalance());
         commandControl = new CommandControl(new WithdrawCommand(account, entry));
         commandControl.startCommandExecute();
     }
