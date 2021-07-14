@@ -10,7 +10,6 @@ public class JTextFieldAdapter extends JTextField {
 
     public JTextFieldAdapter(JTextFieldView textFieldView) {
         this.textFieldView = textFieldView;
-        setText(this.textFieldView.getTitle());
         setBounds(this.textFieldView.getX().intValue(), this.textFieldView.getY().intValue(),
                 this.textFieldView.getWidth().intValue(), this.textFieldView.getHeight().intValue());
     }

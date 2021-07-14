@@ -23,10 +23,14 @@ public abstract class GuiForm extends JFrame {
     JPanelView viewComposite;
 
     JPanel jPanel;
+    Boolean isPopup = false;
 
     Map<String, JComponent> viewsHashmap = new HashMap<>();
 
-
+    public GuiForm(Boolean isPopup){
+        this();
+        this.isPopup = isPopup;
+    }
     public GuiForm() {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout(0,0));
@@ -73,8 +77,10 @@ public abstract class GuiForm extends JFrame {
     protected void exitApplication(){
         try {
             this.setVisible(false);    // hide the Frame
-            this.dispose();            // free the system resources
-            System.exit(0);            // close the application
+            if (!isPopup){
+                this.dispose();            // free the system resources
+                System.exit(0);            // close the application
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,0 +1,28 @@
+ {
+   "id" : "main_panel",
+   "type" : "JPanel",
+    "width" : 283,
+    "height" : 303,
+    "x":0,
+    "y": 0,
+    "children" : [
+      {
+        "id" : "add_personal_acc_btn",
+        "type" : "JLabel",
+        "title" : "Add personal account",
+        "x":12,
+        "y": 96,
+        "width" : 48,
+        "height" : 24
+      },
+      {
+        "id" : "add_company_acc_btn",
+        "type" : "JTextField",
+        "title" : "Add company account",
+        "x": 84,
+        "y": 84,
+        "width" : 156,
+        "height" : 20
+      }
+    ]
+ }

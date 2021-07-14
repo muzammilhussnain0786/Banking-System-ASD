@@ -5,6 +5,8 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.GuiForm;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -27,5 +29,13 @@ public class BankUI extends GuiForm {
     @Override
     public void setUIListeners() {
         ((JButton) findViewById("exit")).addActionListener(event -> exitApplication());
+        ((JButton) findViewById("add_personal_acc_btn")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddPAccPopup accPopup = new AddPAccPopup();
+                accPopup.start();
+            }
+        });
+
     }
 }
