@@ -1,0 +1,190 @@
+ {
+   "id" : "main_panel",
+   "type" : "JPanel",
+    "width" : 283,
+    "height" : 340,
+    "x":0,
+    "y": 0,
+    "children" : [
+      {
+        "id" : "checking_radio",
+        "type" : "JRadioButton",
+        "title" : "Checkings",
+        "x":36,
+        "y": 12,
+        "width" : 124,
+        "height" : 24
+      },
+      {
+        "id" : "savings_radio",
+        "type" : "JRadioButton",
+        "title" : "Savings",
+        "x":36,
+        "y": 36,
+        "width" : 124,
+        "height" : 24
+      },
+      {
+        "id" : "accNumber",
+        "type" : "JLabel",
+        "title" : "Account Nr",
+        "x":12,
+        "y": 60,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtAccNumber",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 60,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "name",
+        "type" : "JLabel",
+        "title" : "Name",
+        "x":12,
+        "y": 84,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtName",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 84,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "street",
+        "type" : "JLabel",
+        "title" : "Street",
+        "x":12,
+        "y": 108,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtStreet",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 108,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "city",
+        "type" : "JLabel",
+        "title" : "City",
+        "x":12,
+        "y": 132,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtCity",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 132,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "state",
+        "type" : "JLabel",
+        "title" : "State",
+        "x":12,
+        "y": 156,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtState",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 156,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "zip",
+        "type" : "JLabel",
+        "title" : "Zip",
+        "x":12,
+        "y": 180,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtZip",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 180,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "birthDate",
+        "type" : "JLabel",
+        "title" : "BirthDate",
+        "x":12,
+        "y": 204,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtBirthDate",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 204,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "email",
+        "type" : "JLabel",
+        "title" : "Email",
+        "x":12,
+        "y": 228,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtEmail",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 228,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "btnOk",
+        "type" : "JButton",
+        "title" : "OK",
+        "x" : 48,
+        "y" : 264,
+        "width":96,
+        "height": 33
+      },
+      {
+        "id" : "btnCancel",
+        "type" : "JButton",
+        "title" : "Cancel",
+        "x" : 156,
+        "y" : 264,
+        "width":96,
+        "height": 33
+      }
+    ]
+ }

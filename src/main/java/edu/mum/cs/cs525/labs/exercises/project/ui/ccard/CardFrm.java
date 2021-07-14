@@ -13,7 +13,8 @@ import java.time.LocalDate;
 /**
  * A basic JFC based application.
  */
-public class CardFrm extends BSFW{
+public class CardFrm extends javax.swing.JFrame
+{
     /****
      * init variables in the object
      ****/
@@ -31,7 +32,7 @@ public class CardFrm extends BSFW{
 		thisframe=this;
 
 		ccController = new CreditCardController();
-		
+
 		setTitle("Credit-card processing Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0,0));

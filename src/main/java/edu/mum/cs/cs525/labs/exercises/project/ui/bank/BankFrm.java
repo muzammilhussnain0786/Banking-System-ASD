@@ -10,12 +10,15 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 import java.time.LocalDate;
 
 /**
  * A basic JFC based application.
  */
-public class BankFrm extends BSFW {
+public class BankFrm extends JFrame
+{
     /****
      * init variables in the object
      ****/
@@ -174,7 +177,8 @@ public class BankFrm extends BSFW {
 		}
 	}
 
-	class SymAction implements java.awt.event.ActionListener {
+	class SymAction implements java.awt.event.ActionListener
+	{
 		public void actionPerformed(ActionEvent event)
 		{
 			Object object = event.getSource();
@@ -225,9 +229,6 @@ public class BankFrm extends BSFW {
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
             newaccount=false;
         }
-
-       
-        
     }
 
 	void JButtonCompAC_actionPerformed(ActionEvent event)
