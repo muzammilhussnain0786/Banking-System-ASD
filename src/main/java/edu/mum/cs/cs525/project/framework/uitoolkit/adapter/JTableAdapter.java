@@ -31,6 +31,7 @@ public class JTableAdapter extends JTable implements Observer<Account> {
             }
         }
         model.addRow(row);
+        model.moveRow(this.getRowCount()-1, this.getRowCount()-1, 0);
         model.fireTableDataChanged();
     }
 
