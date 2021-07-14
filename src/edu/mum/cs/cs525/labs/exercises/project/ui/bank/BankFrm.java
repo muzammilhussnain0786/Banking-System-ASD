@@ -2,12 +2,15 @@ package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.bank.controller.BankController;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.BSFW;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Entity;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import java.time.LocalDate;
 
 /**
  * A basic JFC based application.
@@ -272,8 +275,13 @@ public class BankFrm extends BSFW {
             long currentamount = Long.parseLong(samount);
 		    long newamount=currentamount+deposit;
 		    model.setValueAt(String.valueOf(newamount),selection, 5);
-//			Account account = new Account(model.get);
-//			bankController.deposit(account);
+
+		    // depositing money
+		    Entity entity = new Entity(1234L, "kidus", "kmt",LocalDate.now(), LocalDate.now(), newamount);
+			Account account = new Account();
+			account.setId(accnr);
+			account.setCurrentBalance(newamount);
+			bankController.deposit(entity, account);
 		}
 		
 		
@@ -300,6 +308,13 @@ public class BankFrm extends BSFW {
 		    if (newamount <0){
 		       JOptionPane.showMessageDialog(JButton_Withdraw, " Account "+accnr+" : balance is negative: $"+String.valueOf(newamount)+" !","Warning: negative balance",JOptionPane.WARNING_MESSAGE);
 		    }
+
+			// withdrawing money
+			Entity entity = new Entity(1234L, "kidus", "kmt",LocalDate.now(), LocalDate.now(), newamount);
+			Account account = new Account();
+			account.setId(accnr);
+			account.setCurrentBalance(newamount);
+			bankController.withdraw(entity, account);
 		}
 		
 		

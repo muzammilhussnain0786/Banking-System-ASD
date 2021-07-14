@@ -24,7 +24,7 @@ public class BankController extends Controller {
 
     @Override
     public void withdraw(Entity entry, Account account) {
-        System.out.println("Depositing  " + account.getCurrentBalance());
+        System.out.println("Withdrawing  " + account.getCurrentBalance());
         commandControl = new CommandControl(new WithdrawCommand(account, entry));
         commandControl.startCommandExecute();
     }
