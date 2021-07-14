@@ -1,6 +1,11 @@
 package edu.mum.cs.cs525.project.bank;
 
+import edu.mum.cs.cs525.project.bank.observer.EmailSender;
+import edu.mum.cs.cs525.project.framework.accounts.Account;
+import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
+import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
+import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -42,5 +47,10 @@ public class BankUI extends GuiForm {
             DepositPopup accPopup = new DepositPopup();
             accPopup.start();
         });
+    }
+
+    @Override
+    public void setUpObservers() {
+        DatabaseAccountService.getInstance().attach(((Observer<Account>) findViewById("acc_table")));
     }
 }

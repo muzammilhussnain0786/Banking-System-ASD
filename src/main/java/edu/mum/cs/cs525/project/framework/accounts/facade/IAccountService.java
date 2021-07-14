@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public interface IAccountService {
 
-    Account createAccount(String accountNumber, String customerName, Owner owner, BalanceBehaviour balanceBehaviour);
+    Account createAccount(Account account);
     Account getAccount(String accountNumber);
     Collection<Account> getAllAccounts();
     void deposit (String accountNumber, double amount);

@@ -53,11 +53,14 @@ public abstract class GuiForm extends JFrame {
         inflateViews();
 
         setUIListeners();
+
+        setUpObservers();
     }
 
     public abstract String loadJsonFile() throws IOException, URISyntaxException;
 
     public abstract void setUIListeners();
+    public abstract void setUpObservers();
 
     private void inflateViews(){
         ViewsGeneratorVisitor viewsGeneratorVisitor = new ViewsGeneratorVisitor(viewsHashmap);

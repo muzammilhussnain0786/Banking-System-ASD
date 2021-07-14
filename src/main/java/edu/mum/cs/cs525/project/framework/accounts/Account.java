@@ -3,13 +3,14 @@ package edu.mum.cs.cs525.project.framework.accounts;
 
 import edu.mum.cs.cs525.project.framework.accounts.strategy.BalanceBehaviour;
 import edu.mum.cs.cs525.project.framework.accounts.strategy.EmptyBalanceBehaviour;
+import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Account implements Serializable {
+public class Account implements Serializable, TableRow {
 	private Owner owner;
 
 	private String accountNumber;
@@ -92,5 +93,10 @@ public class Account implements Serializable {
 
 	public void setBalanceBehaviour(BalanceBehaviour balanceBehaviour) {
 		this.balanceBehaviour = balanceBehaviour;
+	}
+
+	@Override
+	public Object[] row() {
+		return new Object[0];
 	}
 }

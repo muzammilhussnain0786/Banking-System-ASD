@@ -1,6 +1,6 @@
 package edu.mum.cs.cs525.project.framework.uitoolkit;
 
-public abstract class TableRow {
+public interface TableRow {
 
-    public abstract Object[] row();
+    Object[] row();
 }

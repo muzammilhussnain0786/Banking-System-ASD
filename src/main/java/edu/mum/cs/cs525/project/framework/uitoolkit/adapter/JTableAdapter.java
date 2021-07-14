@@ -1,5 +1,6 @@
 package edu.mum.cs.cs525.project.framework.uitoolkit.adapter;
 
+import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 import edu.mum.cs.cs525.project.framework.uitoolkit.composite.JTableView;
@@ -7,7 +8,7 @@ import edu.mum.cs.cs525.project.framework.uitoolkit.composite.JTableView;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class JTableAdapter extends JTable implements Observer<TableRow> {
+public class JTableAdapter extends JTable implements Observer<Account> {
 
     JTableView jTableView;
     private DefaultTableModel model;
@@ -21,8 +22,9 @@ public class JTableAdapter extends JTable implements Observer<TableRow> {
                 this.jTableView.getWidth().intValue(), this.jTableView.getHeight().intValue());
     }
 
+
     @Override
-    public void update(TableRow data) {
-        model.addRow(data.row());
+    public void update(Account data) {
+        //((TableRow) data)
     }
 }

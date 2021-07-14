@@ -3,6 +3,7 @@ package edu.mum.cs.cs525.project.bank;
 import edu.mum.cs.cs525.project.bank.strategy.CheckingAccountBalanceImpl;
 import edu.mum.cs.cs525.project.bank.strategy.SavingAccountBalanceImpl;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
+import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
 import edu.mum.cs.cs525.project.framework.accounts.factory.DatabaseAccountDAO;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
@@ -16,7 +17,7 @@ import java.util.Objects;
 
 public class AddPAccPopup extends GuiForm {
 
-    private AccountDAO dao = new DatabaseAccountDAO();
+    DatabaseAccountService databaseAccountService = DatabaseAccountService.getInstance();
 
     public AddPAccPopup() {
         super(true);
@@ -44,7 +45,6 @@ public class AddPAccPopup extends GuiForm {
         } else {
             account = new Account(txtAccNumber.getText(), new SavingAccountBalanceImpl());
         }
-        dao.saveAccount(account);
-        //TODO notify to observer
+        databaseAccountService.createAccount(account);
     }
 }
