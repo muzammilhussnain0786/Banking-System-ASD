@@ -9,16 +9,16 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
 
-public class AddPAccPopup extends GuiForm {
+public class AddCAccPopup extends GuiForm {
 
 
-    public AddPAccPopup() {
+    public AddCAccPopup() {
         super(true);
     }
 
     @Override
     public String loadJsonFile() throws IOException, URISyntaxException {
-        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/addPersonalAccountPopup.json")).toURI()));
+        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/addCompanyAccountPopup.json")).toURI()));
     }
 
     @Override

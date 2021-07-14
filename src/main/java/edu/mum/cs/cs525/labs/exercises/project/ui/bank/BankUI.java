@@ -16,7 +16,6 @@ import java.util.Objects;
 
 public class BankUI extends GuiForm {
 
-
     public BankUI() {
         super();
     }
@@ -29,13 +28,13 @@ public class BankUI extends GuiForm {
     @Override
     public void setUIListeners() {
         ((JButton) findViewById("exit")).addActionListener(event -> exitApplication());
-        ((JButton) findViewById("add_personal_acc_btn")).addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                AddPAccPopup accPopup = new AddPAccPopup();
-                accPopup.start();
-            }
+        ((JButton) findViewById("add_personal_acc_btn")).addActionListener(e -> {
+            AddPAccPopup accPopup = new AddPAccPopup();
+            accPopup.start();
         });
-
+        ((JButton) findViewById("add_company_acc_btn")).addActionListener(e -> {
+            AddCAccPopup accPopup = new AddCAccPopup();
+            accPopup.start();
+        });
     }
 }

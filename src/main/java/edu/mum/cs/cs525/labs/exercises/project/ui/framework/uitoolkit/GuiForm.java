@@ -64,6 +64,7 @@ public abstract class GuiForm extends JFrame {
         viewComposite.accept(viewsGeneratorVisitor);
 
         jPanel = (JPanel) viewsGeneratorVisitor.getParent();
+        jPanel.setLayout(null);
 
         setTitle(viewComposite.getTitle());
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

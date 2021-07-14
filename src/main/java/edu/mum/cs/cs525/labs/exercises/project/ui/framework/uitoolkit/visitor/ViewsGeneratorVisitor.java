@@ -81,6 +81,13 @@ public class ViewsGeneratorVisitor implements Visitor{
         this.viewsHashmap.put(view.getId(), label);
     }
 
+    @Override
+    public void visit(JRadioButtonView view) {
+        JRadioButtonAdapter radio = new JRadioButtonAdapter(view);
+        parent.add(radio);
+        this.viewsHashmap.put(view.getId(), radio);
+    }
+
     public JComponent getParent() {
         return parent;
     }
