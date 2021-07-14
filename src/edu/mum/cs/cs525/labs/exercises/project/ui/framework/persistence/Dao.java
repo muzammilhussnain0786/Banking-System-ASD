@@ -1,6 +1,6 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.persistence;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.BaseEntity;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.account.Account;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public abstract class Dao<T> {
     List<T> entities = new ArrayList<>();
 
     public Optional<T> get(long id){
-        return entities.stream().filter(x -> ((BaseEntity) x).getId() == id).findAny();
+        return entities.stream().filter(x -> ((Account) x).getId() == id).findAny();
     }
 
     public List<T> getAll(){
@@ -28,7 +28,7 @@ public abstract class Dao<T> {
     }
 
     public void delete(T t) {
-        Optional<T> any = get(((BaseEntity) t).getId());
+        Optional<T> any = get(((Account) t).getId());
         any.orElseThrow(IllegalArgumentException::new);
         any.ifPresent(value -> entities.remove(value));
     }
