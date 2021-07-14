@@ -7,11 +7,20 @@ import java.util.List;
 public class Owner implements Serializable {
 	private String id;
 	private String name;
+	private String city;
 
 	private List<Account> accounts = new ArrayList<>();
 
 	public Owner(String name) {
 		this.name = name;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getName() {

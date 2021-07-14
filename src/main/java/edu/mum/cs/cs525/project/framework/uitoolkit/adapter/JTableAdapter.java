@@ -1,5 +1,6 @@
 package edu.mum.cs.cs525.project.framework.uitoolkit.adapter;
 
+import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
@@ -25,9 +26,7 @@ public class JTableAdapter extends JTable implements Observer<Account> {
 
     @Override
     public void update(Account data) {
-        //((TableRow) data)
-        //["AccountNr", "Name", "City", "P/C", "Ch/S", "Amount"]
-        model.addRow(new Object[]{data.getAccountNumber()});
+        model.addRow((((TableRow) data)).row());
         model.fireTableDataChanged();
     }
 }
