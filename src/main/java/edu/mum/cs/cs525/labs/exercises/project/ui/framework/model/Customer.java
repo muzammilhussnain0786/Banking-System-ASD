@@ -1,5 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.model;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.account.Account;
+
 import java.util.ArrayList;
 import java.util.List;
 

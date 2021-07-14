@@ -18,7 +18,7 @@ public class TestFrameWork {
     }
 }
 
-class ConcreteAccount extends Account  {
+class ConcreteAccount extends Account {
 
     @Override
     public void addInterest() {

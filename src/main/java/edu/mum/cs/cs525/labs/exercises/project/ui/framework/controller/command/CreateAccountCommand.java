@@ -1,7 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.response.Response;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.account.Account;
 
 public class CreateAccountCommand extends AbstractCommand {
 //    BaseController controller;

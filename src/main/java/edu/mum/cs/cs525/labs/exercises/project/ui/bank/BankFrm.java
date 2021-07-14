@@ -1,8 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.bank.controller.BankController;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.BSFW;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.account.Account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Entity;
 
 import javax.swing.*;
@@ -10,8 +9,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.*;
 import java.time.LocalDate;
 
 /**

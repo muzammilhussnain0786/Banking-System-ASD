@@ -10,7 +10,7 @@ public abstract class Dao<T> {
 
     List<T> entities = new ArrayList<>();
 
-    public Optional<T> get(long id){
+    public Optional<T> get(String id){
         return entities.stream().filter(x -> ((Account) x).getId() == id).findAny();
     }
 

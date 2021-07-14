@@ -5,7 +5,7 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.Controlle
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.AddInterestCommand;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.DepositCommand;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.controller.command.WithdrawCommand;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.account.Account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Entity;
 
 public class CreditCardController extends Controller {

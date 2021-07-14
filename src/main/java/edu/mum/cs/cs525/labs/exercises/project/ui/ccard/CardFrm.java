@@ -1,8 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.ccard.controller.CreditCardController;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.BSFW;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.account.Account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.model.Entity;
 
 import javax.swing.*;
