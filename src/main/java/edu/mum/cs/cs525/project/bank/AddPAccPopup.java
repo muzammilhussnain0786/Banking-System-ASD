@@ -1,11 +1,11 @@
 package edu.mum.cs.cs525.project.bank;
 
-import edu.mum.cs.cs525.project.bank.strategy.CheckingAccountBalanceImpl;
-import edu.mum.cs.cs525.project.bank.strategy.SavingAccountBalanceImpl;
+import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
+import edu.mum.cs.cs525.project.bank.model.SavingAccount;
+import edu.mum.cs.cs525.project.bank.strategy.CheckingAccountInterestBehaviour;
+import edu.mum.cs.cs525.project.bank.strategy.SavingAccountInterestBehaviour;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
-import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
-import edu.mum.cs.cs525.project.framework.accounts.factory.DatabaseAccountDAO;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
 
 import javax.swing.*;
@@ -36,14 +36,19 @@ public class AddPAccPopup extends GuiForm {
         });
     }
 
+    @Override
+    public void setUpObservers() {
+
+    }
+
     private void createAccount(){
         JTextField txtAccNumber = (JTextField) findViewById("txtAccNumber");
         JRadioButton checking_radio = (JRadioButton) findViewById("checking_radio");
         Account account = null;
         if (checking_radio.isSelected()){
-           account =  new Account(txtAccNumber.getText(), new CheckingAccountBalanceImpl());
+           account =  new CheckingAccount(txtAccNumber.getText(), new CheckingAccountInterestBehaviour());
         } else {
-            account = new Account(txtAccNumber.getText(), new SavingAccountBalanceImpl());
+            account = new SavingAccount(txtAccNumber.getText(), new SavingAccountInterestBehaviour());
         }
         databaseAccountService.createAccount(account);
     }
