@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.uitoolkit.visitor.Visitor;
 
 @SuppressWarnings("unused")
-public class View {
+public abstract class View {
 
     @SerializedName("height")
     private Long mHeight;
