@@ -1,20 +1,17 @@
 package edu.mum.cs.cs525.project.framework.accounts.facade;
 
 
-import edu.mum.cs.cs525.project.framework.accounts.Owner;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
-import edu.mum.cs.cs525.project.framework.accounts.strategy.BalanceBehaviour;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
-import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 
-public abstract class AbstractAccountService implements IAccountService, Observable<Account> {
+public abstract class AbstractAccountService implements IAccountService, Observable {
 
 	AccountDAO accountDAO;
 	private final List<Observer> observers = new ArrayList<>();

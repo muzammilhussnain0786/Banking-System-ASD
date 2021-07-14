@@ -1,7 +1,10 @@
 package edu.mum.cs.cs525.project.bank;
 
+import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
+import edu.mum.cs.cs525.project.bank.model.SavingAccount;
 import edu.mum.cs.cs525.project.bank.observer.EmailSender;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
+import edu.mum.cs.cs525.project.framework.accounts.AccountEntry;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
@@ -51,6 +54,7 @@ public class BankUI extends GuiForm {
 
     @Override
     public void hook() {
-        DatabaseAccountService.getInstance().attach(((Observer<Account>) findViewById("acc_table")));
+        DatabaseAccountService.getInstance().attach(SavingAccount.class, ((Observer<Account>) findViewById("acc_table")));
+        DatabaseAccountService.getInstance().attach(CheckingAccount.class, ((Observer<Account>) findViewById("acc_table")));
     }
 }

@@ -7,7 +7,7 @@ import edu.mum.cs.cs525.project.framework.observer.Observable;
 import java.util.Collection;
 import java.util.Map;
 
-public class DatabaseAccountDAO implements AccountDAO, Observable<Account> {
+public class DatabaseAccountDAO implements AccountDAO, Observable {
     DataAccess dataAccess = DataAccess.getInstance();
 
     @Override
