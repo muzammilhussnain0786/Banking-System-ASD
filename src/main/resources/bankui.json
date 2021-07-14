@@ -1,6 +1,7 @@
  {
    "id" : "main_panel",
    "type" : "JPanel",
+   "title" : "Bank Application Team 5",
     "width" : 575,
     "height" : 371,
     "x":0,
@@ -25,11 +26,29 @@
         "height" : 33
       },
       {
+        "id" : "generate_report",
+        "type" : "JButton",
+        "title" : "Generate Report",
+        "x" : 450,
+        "y" : 20,
+        "width":112,
+        "height": 33
+      },
+      {
+        "id" : "add_interest_btn",
+        "type" : "JButton",
+        "title" : "Add interest",
+        "x" : 468,
+        "y" : 90,
+        "width":96,
+        "height": 33
+      },
+      {
         "id" : "deposit_btn",
         "type" : "JButton",
         "title" : "Deposit",
         "x" : 468,
-        "y" : 104,
+        "y" : 127,
         "width":96,
         "height": 33
       },
@@ -37,16 +56,7 @@
         "id" : "withdraw_btn",
         "type" : "JButton",
         "title" : "Withdraw",
-        "x" : 448,
-        "y" : 20,
-        "width":106,
-        "height": 33
-      },
-      {
-        "id" : "add_interest_btn",
-        "type" : "JButton",
-        "title" : "Add interest",
-        "x" : 448,
+        "x" : 468,
         "y" : 164,
         "width":96,
         "height": 33
@@ -55,7 +65,7 @@
         "id" : "exit",
         "type" : "JButton",
         "title" : "Exit",
-        "x" : 448,
+        "x" : 468,
         "y" : 248,
         "width":96,
         "height": 33
