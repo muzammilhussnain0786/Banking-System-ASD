@@ -29,11 +29,15 @@ public class WithDrawPopup extends GuiForm {
     public void setUIListeners() {
         ((JButton) findViewById("btnCancel")).addActionListener(event -> exitApplication());
         ((JButton) findViewById("btnOk")).addActionListener(event -> {
-            String amountString = ((JTextField) findViewById("txtAmount")).getText();
-            double amo = amountString != null && !"".equals(amountString) ? Double.parseDouble(amountString) : 0.0;
-            DatabaseAccountService.getInstance().withdraw(accountNumber, amo);
-            exitApplication();
+            withdraw();
         });
+    }
+
+    private void withdraw() {
+        String amountString = ((JTextField) findViewById("txtAmount")).getText();
+        double amo = amountString != null && !"".equals(amountString) ? Double.parseDouble(amountString) : 0.0;
+        DatabaseAccountService.getInstance().withdraw(accountNumber, amo);
+        exitApplication();
     }
 
 }

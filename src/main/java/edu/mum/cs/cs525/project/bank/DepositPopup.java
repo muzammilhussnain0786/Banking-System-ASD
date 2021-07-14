@@ -29,11 +29,15 @@ public class DepositPopup extends GuiForm {
     public void setUIListeners() {
         ((JButton) findViewById("btnCancel")).addActionListener(event -> exitApplication());
         ((JButton) findViewById("btnOk")).addActionListener(event -> {
-            String amountString = ((JTextField) findViewById("txtAmount")).getText();
-            double amo = amountString != null && !"".equals(amountString) ? Double.parseDouble(amountString) : 0.0;
-            DatabaseAccountService.getInstance().deposit(accountNumber, amo);
-            exitApplication();
+            deposit();
         });
 
+    }
+
+    private void deposit() {
+        String amountString = ((JTextField) findViewById("txtAmount")).getText();
+        double amo = amountString != null && !"".equals(amountString) ? Double.parseDouble(amountString) : 0.0;
+        DatabaseAccountService.getInstance().deposit(accountNumber, amo);
+        exitApplication();
     }
 }
