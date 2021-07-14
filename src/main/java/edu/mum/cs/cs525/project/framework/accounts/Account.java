@@ -17,7 +17,7 @@ public class Account implements Serializable, TableRow {
 
 	private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
 
-	transient BalanceBehaviour balanceBehaviour;
+	private BalanceBehaviour balanceBehaviour;
 
 	public Account(String accountNumber, BalanceBehaviour balanceBehaviour) {
 		this.accountNumber = accountNumber;

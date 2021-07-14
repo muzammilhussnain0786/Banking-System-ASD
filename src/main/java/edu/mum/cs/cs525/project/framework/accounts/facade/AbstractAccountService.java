@@ -49,6 +49,7 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 		Account account = accountDAO.loadAccount(accountNumber);
 		account.withdraw(amount);
 		accountDAO.updateAccount(account);
+		this.notifyObservers(account);
 	}
 
 
@@ -64,7 +65,11 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	@Override
 	public void executeBalanceBehaviour(String description) {
 		Collection<Account> accounts = accountDAO.getAccounts();
-		accounts.forEach(account -> account.executeBalanceBehaviour(description));
+		accounts.forEach(account -> {
+			account.executeBalanceBehaviour(description);
+			accountDAO.updateAccount(account);
+			this.notifyObservers(account);
+		});
 	}
 
 
