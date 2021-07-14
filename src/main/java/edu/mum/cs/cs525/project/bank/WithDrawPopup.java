@@ -12,8 +12,10 @@ import java.util.Objects;
 public class WithDrawPopup extends GuiForm {
 
 
-    public WithDrawPopup() {
+    public WithDrawPopup(String accountNumber) {
         super(true);
+
+        ((JTextField) findViewById("txtAccNumber")).setText(accountNumber);
     }
 
     @Override
@@ -25,4 +27,5 @@ public class WithDrawPopup extends GuiForm {
     public void setUIListeners() {
         ((JButton) findViewById("btnCancel")).addActionListener(event -> exitApplication());
     }
+
 }

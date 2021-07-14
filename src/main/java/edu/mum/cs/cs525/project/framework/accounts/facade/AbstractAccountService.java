@@ -32,8 +32,8 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	public void deposit(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
 		account.deposit(amount);
-		
 		accountDAO.updateAccount(account);
+		this.notifyObservers(account);
 	}
 
 	public Account getAccount(String accountNumber) {
