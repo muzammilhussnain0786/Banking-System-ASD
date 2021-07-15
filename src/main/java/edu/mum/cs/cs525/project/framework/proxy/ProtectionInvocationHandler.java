@@ -1,6 +1,5 @@
 package edu.mum.cs.cs525.project.framework.proxy;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 import java.util.Arrays;
 import java.util.List;
@@ -8,19 +7,20 @@ import java.util.stream.Collectors;
 
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.AccountEntry;
-import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
 
 public class ProtectionInvocationHandler implements InvocationHandler {
-	AccountDAO IAcc;
+	Object IAcc;
 
-	public ProtectionInvocationHandler(AccountDAO accountDAO) {
-		this.IAcc = accountDAO;
+	public ProtectionInvocationHandler(Object ob) {
+		this.IAcc = ob;
 	}
 
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		System.out.println("\n=====================================");
+		  System.out.println(String.format("[LOG] Calling method %s with args: %s",
+	                method.getName(), Arrays.toString(args)));
 
-		System.out.println("Method params  param" + Arrays.toString(method.getParameters()));
 		if (args != null) {
 			Account a = (Account) args[0];
 			List<AccountEntry> accounts = a.getEntryList().stream().collect(Collectors.toList());
