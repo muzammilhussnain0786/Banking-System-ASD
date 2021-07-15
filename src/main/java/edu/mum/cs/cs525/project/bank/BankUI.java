@@ -2,7 +2,9 @@ package edu.mum.cs.cs525.project.bank;
 
 import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
 import edu.mum.cs.cs525.project.bank.model.SavingAccount;
+import edu.mum.cs.cs525.project.bank.observer.EmailSender;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
+import edu.mum.cs.cs525.project.framework.accounts.AccountEntryInfo;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
@@ -54,7 +56,7 @@ public class BankUI extends GuiForm {
         });
 
         ((JButton) findViewById("generate_report")).addActionListener(e -> {
-            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
+            AccountStatementPopup accPopup = new AccountStatementPopup(getSelectedAccountNumber());
             accPopup.start();
         });
 
@@ -66,8 +68,7 @@ public class BankUI extends GuiForm {
     private String getSelectedAccountNumber() {
         JTableAdapter acc_table = (JTableAdapter) findViewById("acc_table");
         int rowIndex = acc_table.getSelectedRow();
-        String accountNumber = acc_table.getModel().getValueAt(rowIndex, 0).toString();
-        return accountNumber;
+        return acc_table.getModel().getValueAt(rowIndex, 0).toString();
     }
 
     @Override
@@ -75,5 +76,6 @@ public class BankUI extends GuiForm {
 
         DatabaseAccountService.getInstance().attach(SavingAccount.class, ((Observer<Account>) findViewById("acc_table")));
         DatabaseAccountService.getInstance().attach(CheckingAccount.class, ((Observer<Account>) findViewById("acc_table")));
+        DatabaseAccountService.getInstance().attach(AccountEntryInfo.class, EmailSender.getInstance());
     }
 }

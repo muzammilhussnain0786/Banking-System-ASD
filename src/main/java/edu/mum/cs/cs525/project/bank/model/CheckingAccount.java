@@ -12,10 +12,6 @@ public class CheckingAccount extends Account {
         super(accountNumber, balanceBehaviour);
     }
 
-    public String getAccountType(){
-        return "Gold";
-    }
-
     @Override
     public Object[] row() {
         String ownerType = this.getOwner() instanceof PersonalCustomer? "P" : "C";

@@ -1,9 +1,6 @@
 package edu.mum.cs.cs525.project.bank;
 
-import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
-import edu.mum.cs.cs525.project.bank.model.Company;
-import edu.mum.cs.cs525.project.bank.model.PersonalCustomer;
-import edu.mum.cs.cs525.project.bank.model.SavingAccount;
+import edu.mum.cs.cs525.project.bank.model.*;
 import edu.mum.cs.cs525.project.bank.strategy.CheckingAccountInterestBehaviour;
 import edu.mum.cs.cs525.project.bank.strategy.SavingAccountInterestBehaviour;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
@@ -43,19 +40,18 @@ public class AddCAccPopup extends GuiForm {
         JTextField txtAccNumber = (JTextField) findViewById("txtAccNumber");
         JTextField txtName = (JTextField) findViewById("txtName");
         JTextField txtCity = (JTextField) findViewById("txtCity");
-
+        JTextField txtEmail = (JTextField) findViewById("txtEmail");
+        JTextField txtZip = (JTextField) findViewById("txtZip");
+        JTextField txtState = (JTextField) findViewById("txtState");
+        JTextField txtNoOfEmp = (JTextField) findViewById("txtNoOfEmp");
         JRadioButton checking_radio = (JRadioButton) findViewById("checking_radio");
-        Account account = null;
-        if (checking_radio.isSelected()){
-            account =  new CheckingAccount(txtAccNumber.getText(), new CheckingAccountInterestBehaviour());
-        } else {
-            account = new SavingAccount(txtAccNumber.getText(), new SavingAccountInterestBehaviour());
-        }
-        Owner owner = new Company(txtName.getText());
-        owner.setCity(txtCity.getText());
+
+        Account account = new AccountFactory().getAccount(checking_radio.isSelected() ? "Ch" : "S", txtAccNumber.getText());
+        Owner owner = new Company(txtName.getText(), txtCity.getText(), txtEmail.getText(), txtState.getText(), txtZip.getText(), Integer.parseInt(txtNoOfEmp.getText()));
 
         account.setOwner(owner);
         owner.addAccount(account);
+
         databaseAccountService.createAccount(account);
     }
 }

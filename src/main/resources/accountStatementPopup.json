@@ -1,0 +1,72 @@
+{
+  "id": "main_panel",
+  "type": "JPanel",
+  "title": "Bank Application Team 5",
+  "width": 575,
+  "height": 300,
+  "x": 0,
+  "y": 0,
+  "children": [
+    {
+      "id": "accNumber",
+      "type": "JLabel",
+      "title": "Account Nr",
+      "x": 12,
+      "y": 20,
+      "width": 120,
+      "height": 24
+    },
+    {
+      "id": "txtAccNumber",
+      "type": "JTextField",
+      "title": "",
+      "x": 120,
+      "y": 20,
+      "width": 170,
+      "height": 20
+    },
+    {
+      "id": "accNumber",
+      "type": "JLabel",
+      "title": "Balance :",
+      "x": 12,
+      "y": 44,
+      "width": 120,
+      "height": 24
+    },
+    {
+      "id": "lblAccBalance",
+      "type": "JLabel",
+      "title": "",
+      "x": 120,
+      "y": 45,
+      "width": 170,
+      "height": 20
+    },
+    {
+      "id": "scroll_panel",
+      "type": "JScrollPanel",
+      "title": "Exit",
+      "x": 12,
+      "y": 92,
+      "width":550,
+      "height": 160,
+      "children": [
+        {
+          "id": "statement_table",
+          "type": "JTable",
+          "title": "",
+          "x": 448,
+          "y": 100,
+          "width": 400,
+          "height": 33,
+          "columns": [
+            "Date",
+            "Amount",
+            "D/W"
+          ]
+        }
+      ]
+    }
+  ]
+}
