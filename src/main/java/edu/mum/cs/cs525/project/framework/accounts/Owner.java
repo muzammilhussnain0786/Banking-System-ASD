@@ -66,4 +66,14 @@ public class Owner implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Owner{" +
+				"id='" + id + '\'' +
+				", name='" + name + '\'' +
+				", city='" + city + '\'' +
+				", accounts=" + accounts.size() +
+				'}';
+	}
 }

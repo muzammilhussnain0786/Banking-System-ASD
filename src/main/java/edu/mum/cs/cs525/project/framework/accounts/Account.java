@@ -117,8 +117,7 @@ public class Account implements Serializable, TableRow {
 		return "Account{" +
 				"owner=" + owner +
 				", accountNumber='" + accountNumber + '\'' +
-				", entryList=" + entryList +
-				", balanceBehaviour=" + balanceBehaviour +
+				", entryList=>\n \n " + entryList +
 				'}';
 	}
 }

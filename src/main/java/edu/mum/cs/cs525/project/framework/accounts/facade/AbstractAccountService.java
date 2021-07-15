@@ -80,12 +80,7 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	}
 
 	@Override
-	public String generateReports() {
-		Collection<Account> accounts = accountDAO.getAccounts();
-		StringBuilder report = new StringBuilder();
-		accounts.forEach(account -> {
-			report.append(account.toString()+"\n");
-		});
-		return report.toString();
+	public Collection<Account> generateReports() {
+		return accountDAO.getAccounts();
 	}
 }

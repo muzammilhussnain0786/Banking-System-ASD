@@ -10,6 +10,7 @@ public interface Visitor {
     void visit(JScrollPanelView view);
     void visit(JTableView view);
     void visit(JTextFieldView view);
+    void visit(JTextAreaView view);
     void visit(JLabelView view);
     void visit(JRadioButtonView view);
 

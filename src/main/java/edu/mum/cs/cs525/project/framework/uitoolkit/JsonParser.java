@@ -22,6 +22,7 @@ public class JsonParser implements JsonDeserializer<View> {
                 case "JTable" -> view = new Gson().fromJson(jsonElement, JTableView.class);
                 case "JLabel" -> view = new Gson().fromJson(jsonElement, JLabelView.class);
                 case "JTextField" -> view = new Gson().fromJson(jsonElement, JTextFieldView.class);
+                case "JTextArea" -> view = new Gson().fromJson(jsonElement, JTextAreaView.class);
                 case "JRadioButton" -> view = new Gson().fromJson(jsonElement, JRadioButtonView.class);
             }
 

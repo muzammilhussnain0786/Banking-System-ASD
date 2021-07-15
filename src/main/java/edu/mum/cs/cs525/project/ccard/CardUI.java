@@ -1,11 +1,5 @@
 package edu.mum.cs.cs525.project.ccard;
 
-import edu.mum.cs.cs525.project.bank.AddCAccPopup;
-import edu.mum.cs.cs525.project.bank.AddPAccPopup;
-import edu.mum.cs.cs525.project.bank.DepositPopup;
-import edu.mum.cs.cs525.project.bank.WithDrawPopup;
-import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
-import edu.mum.cs.cs525.project.bank.model.SavingAccount;
 import edu.mum.cs.cs525.project.ccard.model.BronzeAccount;
 import edu.mum.cs.cs525.project.ccard.model.GoldAccount;
 import edu.mum.cs.cs525.project.ccard.model.SilverAccount;
@@ -42,7 +36,8 @@ public class CardUI extends GuiForm {
         });
 
         ((JButton) findViewById("generate_monthly_bill_btn")).addActionListener(e -> {
-            //TODO
+            GenerateCCReportPopup accPopup = new GenerateCCReportPopup(getSelectedAccountNumber());
+            accPopup.start();
         });
         ((JButton) findViewById("add_interest_btn")).addActionListener(e -> {
             DatabaseAccountService.getInstance().executeBalanceBehaviour("");

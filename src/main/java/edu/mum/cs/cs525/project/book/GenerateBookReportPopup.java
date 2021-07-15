@@ -1,4 +1,4 @@
-package edu.mum.cs.cs525.project.bank;
+package edu.mum.cs.cs525.project.book;
 
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
@@ -12,11 +12,11 @@ import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Objects;
 
-public class GenerateReportPopup extends GuiForm {
+public class GenerateBookReportPopup extends GuiForm {
 
     private String accountNumber;
 
-    public GenerateReportPopup(String accountNumber) {
+    public GenerateBookReportPopup(String accountNumber) {
         super(true);
         ((JTextArea) findViewById("txtReport")).setText(prepReport(DatabaseAccountService.getInstance().generateReports()));
         this.accountNumber = accountNumber;

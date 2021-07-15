@@ -69,4 +69,13 @@ public class AccountEntry implements Serializable, TableRow {
     public Object[] row() {
         return new String[]{new SimpleDateFormat("yyyy-MM-dd HH:mm").format(this.date), amount + "", amount < 0 ? "W" : "D"};
     }
+
+	@Override
+	public String toString() {
+		return "AccountEntry{" +
+				"desc=" + (description.startsWith("d") ? "D" : "W") +
+				", amount=" + amount +
+				", date=" + date +
+				"}\n";
+	}
 }
