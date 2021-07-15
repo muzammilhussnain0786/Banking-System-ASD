@@ -49,7 +49,7 @@ public class GenerateCCReportPopup extends GuiForm {
             });
 
             // new balance = previous balance – total credits + total charges + MI * (previous balance – total credits)
-            double newBal = previousMonth.get() - totalCharges.get() + totalCredits.get();// +MI
+            double newBal = previousMonth.get() - totalCharges.get() + totalCredits.get() + (account.getBalance());// +MI
             newBalance.append(newBal);
 
             var horizontalDivider = "-------------------\n";
@@ -66,7 +66,7 @@ public class GenerateCCReportPopup extends GuiForm {
                     .append(horizontalDivider)
                     .append(newBalance);
         });
-        accounts.forEach(account -> report.append("\n"));
+//        accounts.forEach(account -> report.append("\n"));
         return report.toString();
     }
 

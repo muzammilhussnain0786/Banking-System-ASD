@@ -21,6 +21,11 @@ public class GoldAccount extends Account {
     }
 
     @Override
+    public double getBalance() {
+        return super.getBalance()*interest;
+    }
+
+    @Override
     public String toString() {
         return "GoldAccount{" +
                 "interest=" + interest +

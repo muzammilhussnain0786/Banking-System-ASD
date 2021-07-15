@@ -21,6 +21,11 @@ public class SilverAccount extends Account {
     }
 
     @Override
+    public double getBalance() {
+        return super.getBalance()*interest;
+    }
+
+    @Override
     public String toString() {
         return "SilverAccount{" +
                 "interest=" + interest +
