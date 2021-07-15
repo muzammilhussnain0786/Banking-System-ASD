@@ -12,7 +12,12 @@ import java.util.Objects;
 public class DepositPopup extends GuiForm {
 
 
-    public DepositPopup() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6504120618344036213L;
+
+	public DepositPopup() {
         super(true);
     }
 

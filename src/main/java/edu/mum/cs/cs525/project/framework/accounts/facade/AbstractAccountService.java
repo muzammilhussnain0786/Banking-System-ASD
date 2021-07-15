@@ -7,8 +7,10 @@ import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
 import edu.mum.cs.cs525.project.framework.accounts.strategy.BalanceBehaviour;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
+import edu.mum.cs.cs525.project.framework.proxy.LoggingInvocationHandler;
 import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,8 +28,10 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	protected abstract AccountDAO createAccountDAO();
 
 	public Account createAccount(Account account) {
-
-		accountDAO.saveAccount(account);
+		
+		AccountDAO  proxy = (AccountDAO ) Proxy.newProxyInstance(AccountDAO.class.getClassLoader(),
+	    			new Class[] {AccountDAO.class }, new LoggingInvocationHandler(accountDAO));
+		proxy.saveAccount(account);
 		this.notifyObservers(account);
 		return account;
 	}

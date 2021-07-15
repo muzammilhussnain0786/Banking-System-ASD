@@ -4,7 +4,11 @@ import javax.swing.*;
 
 public class BSFW extends JFrame {
 
-    public void prepareCompany(){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public void prepareCompany(){
         initializeCommands();
         startUserInterface();
         populateData();

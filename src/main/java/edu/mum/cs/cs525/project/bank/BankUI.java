@@ -1,6 +1,5 @@
 package edu.mum.cs.cs525.project.bank;
 
-import edu.mum.cs.cs525.project.bank.observer.EmailSender;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
@@ -16,7 +15,12 @@ import java.util.Objects;
 
 public class BankUI extends GuiForm {
 
-    public BankUI() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public BankUI() {
         super();
     }
 

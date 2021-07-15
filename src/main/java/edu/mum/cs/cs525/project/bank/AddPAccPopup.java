@@ -8,6 +8,7 @@ import edu.mum.cs.cs525.project.bank.strategy.SavingAccountInterestBehaviour;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.Owner;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
+import edu.mum.cs.cs525.project.framework.proxy.LoggingInvocationHandler;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
 
 import javax.swing.*;
@@ -19,7 +20,11 @@ import java.util.Objects;
 
 public class AddPAccPopup extends GuiForm {
 
-    DatabaseAccountService databaseAccountService = DatabaseAccountService.getInstance();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4084371213233733791L;
+	DatabaseAccountService databaseAccountService = DatabaseAccountService.getInstance();
 
     public AddPAccPopup() {
         super(true);
@@ -54,6 +59,7 @@ public class AddPAccPopup extends GuiForm {
         Owner owner = new PersonalCustomer(txtName.getText());
         owner.setCity(txtCity.getText());
 
+        account.setOwner(owner);
         account.setOwner(owner);
         databaseAccountService.createAccount(account);
     }
