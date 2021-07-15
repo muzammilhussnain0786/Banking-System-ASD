@@ -56,6 +56,11 @@ public class BankUI extends GuiForm {
             accPopup.start();
         });
 
+//        ((JButton) findViewById("report_btn")).addActionListener(e -> {
+//            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
+//            accPopup.start();
+//        });
+
         ((JButton) findViewById("add_interest_btn")).addActionListener(e -> {
             DatabaseAccountService.getInstance().executeBalanceBehaviour("");
         });
