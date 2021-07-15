@@ -1,9 +1,7 @@
 package edu.mum.cs.cs525.project.book;
 
-import edu.mum.cs.cs525.project.book.model.Author;
 import edu.mum.cs.cs525.project.book.model.BookAccount;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
-import edu.mum.cs.cs525.project.framework.accounts.Owner;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
 
@@ -41,12 +39,7 @@ public class AddBookPopup extends GuiForm {
         JTextField txtTitle = (JTextField) findViewById("txtTitle");
         JTextField txtAuthor = (JTextField) findViewById("txtAuthor");
 
-//        JRadioButton checking_radio = (JRadioButton) findViewById("hard_cover_radio");
-        Account account =  new BookAccount(txtIsbn.getText(),txtTitle.getText());
-        Owner owner = new Author(txtAuthor.getText());
-
-        account.setOwner(owner);
-        owner.addAccount(account);
+        Account account =  new BookAccount(txtIsbn.getText(),txtTitle.getText(), txtAuthor.getText(), "0");
         databaseAccountService.createAccount(account);
     }
 }

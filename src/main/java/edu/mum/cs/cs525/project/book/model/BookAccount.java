@@ -4,15 +4,22 @@ import edu.mum.cs.cs525.project.framework.accounts.Account;
 
 public class BookAccount extends Account {
 
-    String name;
-    public BookAccount(String isbn, String title) {
+    String isbn;
+    String title;
+    String author;
+    String copies;
+
+    public BookAccount(String isbn, String title, String author, String copies) {
         super(isbn);
-        name = title;
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.copies = copies;
     }
 
     @Override
     public Object[] row() {
-        return new String[]{this.getAccountNumber(), name, this.getOwner().getName(), String.valueOf(this.getBalance())};
+        return new String[]{isbn, title, author, copies};
     }
 
 }

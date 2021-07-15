@@ -99,4 +99,14 @@ public class Account implements Serializable, TableRow {
 	public Object[] row() {
 		return new Object[0];
 	}
+
+	@Override
+	public String toString() {
+		return "Account{" +
+				"owner=" + owner +
+				", accountNumber='" + accountNumber + '\'' +
+				", entryList=" + entryList +
+				", balanceBehaviour=" + balanceBehaviour +
+				'}';
+	}
 }
