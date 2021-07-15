@@ -75,6 +75,13 @@ public class ViewsGeneratorVisitor implements Visitor{
     }
 
     @Override
+    public void visit(JTextAreaView view) {
+        JTextAreaAdapter textArea = new JTextAreaAdapter(view);
+        parent.add(textArea);
+        this.viewsHashmap.put(view.getId(), textArea);
+    }
+
+    @Override
     public void visit(JLabelView view) {
         JLabelAdapter label = new JLabelAdapter(view);
         parent.add(label);
