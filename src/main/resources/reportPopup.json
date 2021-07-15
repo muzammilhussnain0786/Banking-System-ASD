@@ -1,64 +1,28 @@
- {
-   "id" : "main_panel",
-   "type" : "JPanel",
-    "width" : 283,
-    "height" : 340,
-    "x":0,
-    "y": 0,
-    "children" : [
-      {
-        "id" : "accNumber",
-        "type" : "JLabel",
-        "title" : "Account Nr",
-        "x":12,
-        "y": 60,
-        "width" : 84,
-        "height" : 24
-      },
-      {
-        "id" : "txtAccNumber",
-        "type" : "JTextField",
-        "title" : "",
-        "x": 120,
-        "y": 60,
-        "width" : 156,
-        "height" : 20
-      },
-      {
-        "id" : "amount",
-        "type" : "JLabel",
-        "title" : "Amount",
-        "x":12,
-        "y": 84,
-        "width" : 84,
-        "height" : 24
-      },
-      {
-        "id" : "txtAmount",
-        "type" : "JTextField",
-        "title" : "",
-        "x": 120,
-        "y": 84,
-        "width" : 156,
-        "height" : 20
-      },
-      {
-        "id" : "btnOk",
-        "type" : "JButton",
-        "title" : "OK",
-        "x" : 48,
-        "y" : 264,
-        "width":96,
-        "height": 33
-      },
-      {
-        "id" : "btnCancel",
-        "type" : "JButton",
-        "title" : "Cancel",
-        "x" : 156,
-        "y" : 264,
-        "width":96,
-        "height": 33
-      }
-    ]
- }
+{
+  "id": "main_panel",
+  "type": "JPanel",
+  "width": 405,
+  "height": 367,
+  "x": 0,
+  "y": 0,
+  "children": [
+    {
+      "id": "txtReport",
+      "type": "JTextField",
+      "title": "",
+      "x": 0,
+      "y": 0,
+      "width": 355,
+      "height": 237
+    },
+    {
+      "id": "btnOk",
+      "type": "JButton",
+      "title": "OK",
+      "x": 156,
+      "y": 276,
+      "width": 96,
+      "height": 24
+    }
+  ]
+}

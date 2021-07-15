@@ -50,7 +50,8 @@ public class BankUI extends GuiForm {
         });
 
         ((JButton) findViewById("generate_report")).addActionListener(e -> {
-            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
+            GenerateReportPopup accPopup = new GenerateReportPopup(getSelectedAccountNumber());
+//            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
             accPopup.start();
         });
 

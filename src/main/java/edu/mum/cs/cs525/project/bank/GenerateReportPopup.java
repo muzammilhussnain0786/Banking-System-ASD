@@ -14,32 +14,19 @@ public class GenerateReportPopup extends GuiForm {
 
     private String accountNumber;
 
-    String report = "";
     public GenerateReportPopup(String accountNumber) {
         super(true);
-        report = DatabaseAccountService.getInstance().generateReports();
-        ((JTextField) findViewById("txtAccNumber")).setText(accountNumber);
+        ((JTextField) findViewById("txtReport")).setText(DatabaseAccountService.getInstance().generateReports());
         this.accountNumber = accountNumber;
     }
 
     @Override
     public String loadJsonFile() throws IOException, URISyntaxException {
-        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/generateReports.json")).toURI()));
+        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/reportPopup.json")).toURI()));
     }
 
     @Override
     public void setUIListeners() {
-        ((JButton) findViewById("btnCancel")).addActionListener(event -> exitApplication());
-        ((JButton) findViewById("btnOk")).addActionListener(event -> {
-            deposit();
-        });
-
-    }
-
-    private void deposit() {
-        String amountString = ((JTextField) findViewById("txtAmount")).getText();
-        double amo = amountString != null && !"".equals(amountString) ? Double.parseDouble(amountString) : 0.0;
-        DatabaseAccountService.getInstance().deposit(accountNumber, amo);
-        exitApplication();
+        ((JButton) findViewById("btnOk")).addActionListener(event -> exitApplication());
     }
 }

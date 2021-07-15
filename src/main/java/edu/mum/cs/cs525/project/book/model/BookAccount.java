@@ -22,4 +22,13 @@ public class BookAccount extends Account {
         return new String[]{isbn, title, author, copies};
     }
 
+    @Override
+    public String toString() {
+        return "BookAccount{" +
+                "isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", copies='" + copies + '\'' +
+                '}';
+    }
 }
