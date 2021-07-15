@@ -7,7 +7,6 @@ import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 
 import edu.mum.cs.cs525.project.framework.proxy.LoggingInvocationHandler;
-import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
