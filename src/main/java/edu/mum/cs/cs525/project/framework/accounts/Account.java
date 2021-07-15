@@ -19,6 +19,8 @@ public class Account implements Serializable, TableRow {
 
 	private BalanceBehaviour balanceBehaviour;
 
+	private String expDate;
+
 	public Account(String accountNumber, BalanceBehaviour balanceBehaviour) {
 		this.accountNumber = accountNumber;
 		this.balanceBehaviour = balanceBehaviour;
@@ -37,6 +39,14 @@ public class Account implements Serializable, TableRow {
 		this.accountNumber = accountNumber;
 	}
 
+	public String getExpDate() {
+		return expDate;
+	}
+
+	public void setExpDate(String expDate) {
+		this.expDate = expDate;
+	}
+
 	public double getBalance() {
 		double balance = 0;
 		for (AccountEntry entry : entryList) {
@@ -45,14 +55,16 @@ public class Account implements Serializable, TableRow {
 		return balance;
 	}
 
-	public void deposit(double amount) {
+	public AccountEntry deposit(double amount) {
 		AccountEntry entry = new AccountEntry(amount, "deposit", "", "");
 		addEntry(entry);
+		return entry;
 	}
 
-	public void withdraw(double amount) {
+	public AccountEntry withdraw(double amount) {
 		AccountEntry entry = new AccountEntry(-amount, "withdraw", "", "");
 		addEntry(entry);
+		return entry;
 	}
 
 	private void addEntry(AccountEntry entry) {
@@ -98,5 +110,15 @@ public class Account implements Serializable, TableRow {
 	@Override
 	public Object[] row() {
 		return new Object[0];
+	}
+
+	@Override
+	public String toString() {
+		return "Account{" +
+				"owner=" + owner +
+				", accountNumber='" + accountNumber + '\'' +
+				", entryList=" + entryList +
+				", balanceBehaviour=" + balanceBehaviour +
+				'}';
 	}
 }

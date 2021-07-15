@@ -4,12 +4,10 @@ import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
 import edu.mum.cs.cs525.project.bank.model.SavingAccount;
 import edu.mum.cs.cs525.project.bank.observer.EmailSender;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
-import edu.mum.cs.cs525.project.framework.accounts.AccountEntry;
-import edu.mum.cs.cs525.project.framework.accounts.facade.AbstractAccountService;
+import edu.mum.cs.cs525.project.framework.accounts.AccountEntryInfo;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
-import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 import edu.mum.cs.cs525.project.framework.uitoolkit.adapter.JTableAdapter;
 
 import javax.swing.*;
@@ -22,7 +20,7 @@ import java.util.Objects;
 public class BankUI extends GuiForm {
 
     public BankUI() {
-        super();
+        super(true);
     }
 
     @Override
@@ -53,6 +51,16 @@ public class BankUI extends GuiForm {
             accPopup.start();
         });
 
+        ((JButton) findViewById("generate_report")).addActionListener(e -> {
+            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
+            accPopup.start();
+        });
+
+//        ((JButton) findViewById("report_btn")).addActionListener(e -> {
+//            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
+//            accPopup.start();
+//        });
+
         ((JButton) findViewById("add_interest_btn")).addActionListener(e -> {
             DatabaseAccountService.getInstance().executeBalanceBehaviour("");
         });
@@ -72,5 +80,6 @@ public class BankUI extends GuiForm {
         });
         DatabaseAccountService.getInstance().attach(SavingAccount.class, ((Observer<Account>) findViewById("acc_table")));
         DatabaseAccountService.getInstance().attach(CheckingAccount.class, ((Observer<Account>) findViewById("acc_table")));
+        DatabaseAccountService.getInstance().attach(AccountEntryInfo.class, EmailSender.getInstance());
     }
 }

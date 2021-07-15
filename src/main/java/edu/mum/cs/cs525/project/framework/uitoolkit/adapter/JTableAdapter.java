@@ -26,7 +26,7 @@ public class JTableAdapter extends JTable implements Observer<Account> {
     public void update(Account data) {
         Object[] row = (((TableRow) data)).row();
         for (int i = 0; i < this.getRowCount(); i++) {
-            if (data.getAccountNumber().equals(model.getValueAt(i, 0).toString())) {
+            if (data.getAccountNumber().equals(String.valueOf(model.getValueAt(i, 0)))) {
                 model.removeRow(i);
             }
         }

@@ -1,11 +1,13 @@
-package edu.mum.cs.cs525.project.framework;
+package edu.mum.cs.cs525.project.home;
 
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class BankingFramework {
+public class Home {
 
+    // 1) add book store button
+    // 2) refresh db button
 
     public static void run(Class<?> classGuiForm, String[] args) {
         try {
@@ -16,5 +18,9 @@ public class BankingFramework {
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args){
+        Home.run(HomeUI.class, args);
     }
 }

@@ -55,6 +55,7 @@ public class AddPAccPopup extends GuiForm {
         owner.setCity(txtCity.getText());
 
         account.setOwner(owner);
+        owner.addAccount(account);
         databaseAccountService.createAccount(account);
     }
 }

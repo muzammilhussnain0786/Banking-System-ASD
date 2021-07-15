@@ -1,0 +1,118 @@
+ {
+   "id" : "main_panel",
+   "type" : "JPanel",
+    "width" : 283,
+    "height" : 340,
+    "x":0,
+    "y": 0,
+    "children" : [
+      {
+        "id" : "hard_cover_radio",
+        "type" : "JRadioButton",
+        "title" : "Hard Cover",
+        "x":36,
+        "y": 12,
+        "width" : 124,
+        "height" : 24
+      },
+      {
+        "id" : "paper_back_radio",
+        "type" : "JRadioButton",
+        "title" : "Paper Back",
+        "x":36,
+        "y": 36,
+        "width" : 124,
+        "height" : 24
+      },
+      {
+        "id" : "isbn",
+        "type" : "JLabel",
+        "title" : "ISBN",
+        "x":12,
+        "y": 60,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtIsbn",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 60,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "title",
+        "type" : "JLabel",
+        "title" : "Title",
+        "x":12,
+        "y": 84,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtTitle",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 84,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "author",
+        "type" : "JLabel",
+        "title" : "Author",
+        "x":12,
+        "y": 108,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtAuthor",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 108,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "noCopies",
+        "type" : "JLabel",
+        "title" : "No Copies",
+        "x":12,
+        "y": 132,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "txtNoCopies",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 132,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "btnOk",
+        "type" : "JButton",
+        "title" : "OK",
+        "x" : 48,
+        "y" : 264,
+        "width":96,
+        "height": 33
+      },
+      {
+        "id" : "btnCancel",
+        "type" : "JButton",
+        "title" : "Cancel",
+        "x" : 156,
+        "y" : 264,
+        "width":96,
+        "height": 33
+      }
+    ]
+ }

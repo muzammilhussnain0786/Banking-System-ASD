@@ -1,62 +1,43 @@
  {
    "id" : "main_panel",
    "type" : "JPanel",
-   "title" : "Credit-card processing Application Team 5",
     "width" : 575,
     "height" : 371,
     "x":0,
     "y": 0,
     "children" : [
       {
-        "id" : "add_credit_card_btn",
+        "id" : "create_book_btn",
         "type" : "JButton",
-        "title" : "Add credit-card account",
+        "title" : "Create Book",
         "x":24,
         "y": 20,
         "width" : 192,
         "height" : 33
       },
       {
-        "id" : "generate_monthly_bill_btn",
+        "id" : "add_copy_btn",
         "type" : "JButton",
-        "title" : "Generate Monthly Bills",
-        "x":240,
-        "y": 20,
-        "width" : 192,
-        "height" : 33
-      },
-      {
-        "id" : "add_interest_btn",
-        "type" : "JButton",
-        "title" : "Add Interest",
+        "title" : "Add Copy",
         "x" : 468,
-        "y" : 90,
+        "y" : 104,
         "width":96,
         "height": 33
       },
       {
-        "id" : "deposit_btn",
+        "id" : "remove_copy_btn",
         "type" : "JButton",
-        "title" : "Deposit",
-        "x" : 468,
-        "y" : 127,
-        "width":96,
+        "title" : "Dispense Copy",
+        "x" : 448,
+        "y" : 20,
+        "width":106,
         "height": 33
       },
       {
-        "id" : "add_charge_btn",
-        "type" : "JButton",
-        "title" : "Charge",
-        "x" : 468,
-        "y" : 164,
-        "width":96,
-        "height": 33
-      },
-      {
-        "id" : "btnCancel",
+        "id" : "exit",
         "type" : "JButton",
         "title" : "Exit",
-        "x" : 468,
+        "x" : 448,
         "y" : 248,
         "width":96,
         "height": 33
@@ -64,20 +45,21 @@
       {
         "id" : "scroll_panel",
         "type" : "JScrollPanel",
+        "title" : "Exit",
         "x" : 12,
         "y" : 92,
         "width":444,
         "height": 160,
         "children": [
           {
-            "id" : "acc_table",
+            "id" : "book_table",
             "type" : "JTable",
             "title" : "",
             "x" : 448,
             "y" : 248,
             "width":96,
             "height": 33,
-            "columns" : ["Name", "CC Number", "Exp date", "Type", "Balance"]
+            "columns" : ["ISBN", "Title", "Author", "No Copies"]
           }
         ]
       }
