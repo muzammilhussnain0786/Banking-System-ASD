@@ -7,19 +7,17 @@ public class BookAccount extends Account {
     String isbn;
     String title;
     String author;
-    String copies;
 
-    public BookAccount(String isbn, String title, String author, String copies) {
+    public BookAccount(String isbn, String title, String author) {
         super(isbn);
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.copies = copies;
     }
 
     @Override
     public Object[] row() {
-        return new String[]{isbn, title, author, copies};
+        return new String[]{isbn, title, author, String.valueOf(getBalance())};
     }
 
 }

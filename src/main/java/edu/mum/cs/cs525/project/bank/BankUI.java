@@ -19,6 +19,10 @@ public class BankUI extends GuiForm {
 
     public BankUI() {
         super(true);
+
+        DatabaseAccountService.getInstance().getAllAccounts().forEach(account -> {
+            ((JTableAdapter) findViewById("acc_table")).update(account);
+        });
     }
 
     @Override
@@ -68,9 +72,7 @@ public class BankUI extends GuiForm {
 
     @Override
     public void hook() {
-        DatabaseAccountService.getInstance().getAllAccounts().forEach(account -> {
-            ((JTableAdapter) findViewById("acc_table")).update(account);
-        });
+
         DatabaseAccountService.getInstance().attach(SavingAccount.class, ((Observer<Account>) findViewById("acc_table")));
         DatabaseAccountService.getInstance().attach(CheckingAccount.class, ((Observer<Account>) findViewById("acc_table")));
     }
