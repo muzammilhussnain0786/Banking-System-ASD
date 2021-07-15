@@ -1,5 +1,9 @@
 package edu.mum.cs.cs525.project.ccard;
 
+import edu.mum.cs.cs525.project.bank.AddCAccPopup;
+import edu.mum.cs.cs525.project.bank.AddPAccPopup;
+import edu.mum.cs.cs525.project.bank.DepositPopup;
+import edu.mum.cs.cs525.project.bank.WithDrawPopup;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
 
 import javax.swing.*;
@@ -12,7 +16,7 @@ import java.util.Objects;
 public class CardUI extends GuiForm {
 
     public CardUI() {
-        super();
+        super(true);
     }
 
     @Override
@@ -22,7 +26,31 @@ public class CardUI extends GuiForm {
 
     @Override
     public void setUIListeners() {
-        ((JButton) findViewById("exit")).addActionListener(event -> exitApplication());
+
+        ((JButton) findViewById("add_credit_card_btn")).addActionListener(e -> {
+            AddCreditAccPopup addCreditAccPopup = new AddCreditAccPopup();
+            addCreditAccPopup.start();
+        });
+
+        ((JButton) findViewById("generate_monthly_bill_btn")).addActionListener(e -> {
+            AddCAccPopup accPopup = new AddCAccPopup();
+            accPopup.start();
+        });
+        ((JButton) findViewById("add_interest_btn")).addActionListener(e -> {
+            WithDrawPopup accPopup = new WithDrawPopup();
+            accPopup.start();
+        });
+        ((JButton) findViewById("deposit_btn")).addActionListener(e -> {
+            DepositPopup accPopup = new DepositPopup();
+            accPopup.start();
+        });
+
+        ((JButton) findViewById("add_charge_btn")).addActionListener(e -> {
+            DepositPopup accPopup = new DepositPopup();
+            accPopup.start();
+        });
+
+        ((JButton) findViewById("btnCancel")).addActionListener(event -> exitApplication());
     }
 
     @Override

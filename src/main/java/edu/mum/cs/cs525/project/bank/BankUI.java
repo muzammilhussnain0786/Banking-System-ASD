@@ -18,7 +18,7 @@ import java.util.Objects;
 public class BankUI extends GuiForm {
 
     public BankUI() {
-        super();
+        super(true);
     }
 
     @Override
