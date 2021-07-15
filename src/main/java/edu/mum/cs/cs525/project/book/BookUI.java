@@ -1,6 +1,7 @@
 package edu.mum.cs.cs525.project.book;
 
 import edu.mum.cs.cs525.project.book.model.BookAccount;
+import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
@@ -16,7 +17,7 @@ import java.util.Objects;
 public class BookUI extends GuiForm {
 
     public BookUI() {
-        super();
+        super(true);
     }
 
     @Override

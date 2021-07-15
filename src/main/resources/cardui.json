@@ -77,7 +77,7 @@
             "y" : 248,
             "width":96,
             "height": 33,
-            "columns" : ["Name", "CC Number", "Exp date", "Type", "Balance"]
+            "columns" : ["CC Number", "Name", "Exp date", "Type", "Balance"]
           }
         ]
       }

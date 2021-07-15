@@ -1,11 +1,6 @@
 package edu.mum.cs.cs525.project.ccard;
 
-import edu.mum.cs.cs525.project.bank.AddCAccPopup;
-import edu.mum.cs.cs525.project.bank.AddPAccPopup;
-import edu.mum.cs.cs525.project.bank.DepositPopup;
 import edu.mum.cs.cs525.project.bank.WithDrawPopup;
-import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
-import edu.mum.cs.cs525.project.bank.model.SavingAccount;
 import edu.mum.cs.cs525.project.ccard.model.BronzeAccount;
 import edu.mum.cs.cs525.project.ccard.model.GoldAccount;
 import edu.mum.cs.cs525.project.ccard.model.SilverAccount;
@@ -48,13 +43,13 @@ public class CardUI extends GuiForm {
             DatabaseAccountService.getInstance().executeBalanceBehaviour("");
         });
         ((JButton) findViewById("deposit_btn")).addActionListener(e -> {
-            //TODO
-            DepositCreditPopup accPopup = new DepositCreditPopup(getSelectedAccountNumber());
-            accPopup.start();
+            DepositCreditPopup depositCreditPopup = new DepositCreditPopup(getSelectedAccountNumber());
+            depositCreditPopup.start();
         });
 
         ((JButton) findViewById("add_charge_btn")).addActionListener(e -> {
-            //TODO
+            WithDrawCreditPopup withDrawCreditPopup = new WithDrawCreditPopup(getSelectedAccountNumber());
+            withDrawCreditPopup.start();
         });
 
         ((JButton) findViewById("btnCancel")).addActionListener(event -> exitApplication());
@@ -63,7 +58,7 @@ public class CardUI extends GuiForm {
     private String getSelectedAccountNumber() {
         JTableAdapter acc_table = (JTableAdapter) findViewById("acc_table");
         int rowIndex = acc_table.getSelectedRow();
-        String accountNumber = acc_table.getModel().getValueAt(rowIndex, 1).toString();
+        String accountNumber = acc_table.getModel().getValueAt(rowIndex, 0).toString();
         return accountNumber;
     }
 
