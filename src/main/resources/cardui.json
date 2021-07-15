@@ -77,7 +77,7 @@
             "y" : 248,
             "width":96,
             "height": 33,
-            "columns" : ["AccountNr", "Name", "City", "P/C", "Ch/S", "Amount"]
+            "columns" : ["Name", "CC Number", "Exp date", "Type", "Balance"]
           }
         ]
       }

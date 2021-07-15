@@ -19,6 +19,8 @@ public class Account implements Serializable, TableRow {
 
 	private BalanceBehaviour balanceBehaviour;
 
+	private String expDate;
+
 	public Account(String accountNumber, BalanceBehaviour balanceBehaviour) {
 		this.accountNumber = accountNumber;
 		this.balanceBehaviour = balanceBehaviour;
@@ -35,6 +37,14 @@ public class Account implements Serializable, TableRow {
 
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+
+	public String getExpDate() {
+		return expDate;
+	}
+
+	public void setExpDate(String expDate) {
+		this.expDate = expDate;
 	}
 
 	public double getBalance() {

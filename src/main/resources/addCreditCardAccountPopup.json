@@ -34,24 +34,6 @@
         "height" : 24
       },
       {
-        "id" : "id_label",
-        "type" : "JLabel",
-        "title" : "ID",
-        "x":12,
-        "y": 60,
-        "width" : 84,
-        "height" : 24
-      },
-      {
-        "id" : "id_tf",
-        "type" : "JTextField",
-        "title" : "",
-        "x": 120,
-        "y": 60,
-        "width" : 156,
-        "height" : 20
-      },
-      {
         "id" : "name_label",
         "type" : "JLabel",
         "title" : "Name",
@@ -70,52 +52,52 @@
         "height" : 20
       },
       {
-        "id" : "customer_type",
-        "type" : "JLabel",
-        "title" : "Customer Type",
-        "x":12,
-        "y": 108,
-        "width" : 84,
-        "height" : 24
-      },
-      {
-        "id" : "customer_type_tf",
-        "type" : "JTextField",
-        "title" : "",
-        "x": 120,
-        "y": 108,
-        "width" : 156,
-        "height" : 20
-      },
-      {
-        "id" : "street",
+        "id" : "street_label",
         "type" : "JLabel",
         "title" : "Street",
         "x":12,
-        "y": 132,
+        "y": 108,
         "width" : 84,
         "height" : 24
       },
       {
-        "id" : "txtStreet",
+        "id" : "street_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
-        "y": 132,
+        "y": 108,
         "width" : 156,
         "height" : 20
       },
       {
-        "id" : "city",
+        "id" : "city_label",
         "type" : "JLabel",
         "title" : "City",
         "x":12,
+        "y": 132,
+        "width" : 84,
+        "height" : 24
+      },
+      {
+        "id" : "city_tf",
+        "type" : "JTextField",
+        "title" : "",
+        "x": 120,
+        "y": 132,
+        "width" : 156,
+        "height" : 20
+      },
+      {
+        "id" : "state_label",
+        "type" : "JLabel",
+        "title" : "State",
+        "x":12,
         "y": 156,
         "width" : 84,
         "height" : 24
       },
       {
-        "id" : "txtCity",
+        "id" : "state_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
@@ -124,16 +106,16 @@
         "height" : 20
       },
       {
-        "id" : "state",
+        "id" : "zip_label",
         "type" : "JLabel",
-        "title" : "State",
+        "title" : "Zip",
         "x":12,
         "y": 180,
         "width" : 84,
         "height" : 24
       },
       {
-        "id" : "txtState",
+        "id" : "zip_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
@@ -142,16 +124,16 @@
         "height" : 20
       },
       {
-        "id" : "zip",
+        "id" : "email_label",
         "type" : "JLabel",
-        "title" : "Zip",
+        "title" : "Email",
         "x":12,
         "y": 204,
         "width" : 200,
         "height" : 24
       },
       {
-        "id" : "txtZip",
+        "id" : "email_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
@@ -160,16 +142,16 @@
         "height" : 20
       },
       {
-        "id" : "email",
+        "id" : "cc_number_label",
         "type" : "JLabel",
-        "title" : "Email",
+        "title" : "CC number",
         "x":12,
         "y": 228,
         "width" : 84,
         "height" : 24
       },
       {
-        "id" : "txtEmail",
+        "id" : "cc_number_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
@@ -178,16 +160,16 @@
         "height" : 20
       },
       {
-        "id" : "expDate",
+        "id" : "exp_date_label",
         "type" : "JLabel",
-        "title" : "Exp Date",
+        "title" : "Exp. Date",
         "x":12,
         "y": 252,
         "width" : 84,
         "height" : 24
       },
       {
-        "id" : "txtExpDate",
+        "id" : "exp_date_tf",
         "type" : "JTextField",
         "title" : "",
         "x": 120,
