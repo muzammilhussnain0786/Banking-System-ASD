@@ -13,7 +13,11 @@ import java.util.Objects;
 public class WithDrawPopup extends GuiForm {
 
 
-    private String accountNumber;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2546054003060973930L;
+	private String accountNumber;
     public WithDrawPopup(String accountNumber) {
         super(true);
 
