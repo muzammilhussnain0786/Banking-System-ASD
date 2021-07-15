@@ -24,3 +24,19 @@ We are using the strategy pattern here so that we can have the flexibilty of
 adding any ind of logic that we need to use.
 
 ##Hook
+
+
+## Used Different (13+) Patterns to Design the Framework and implement it
+- Template Pattern
+- Observer Pattern
+- Factory Pattern
+- Visitor Pattern
+- Composite Pattern
+- Iterator Pattern
+- Facade Pattern
+- Adapter Pattern
+- Account Pattern
+- Singleton Pattern
+- Strategy Pattern
+- Rules Pattern
+- Proxy Pattern
