@@ -9,6 +9,11 @@ public class Company extends Owner {
         super(name);
     }
 
+    public Company(String name, String city, String email, String state, String zip, int noOfEmployee) {
+        super(name, city, email, state, zip);
+        this.noOfEmployee = noOfEmployee;
+    }
+
     public int getNoOfEmployee() {
         return noOfEmployee;
     }

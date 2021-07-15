@@ -10,14 +10,14 @@ import edu.mum.cs.cs525.project.framework.observer.Observer;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
 public abstract class AbstractAccountService implements IAccountService, Observable {
 
 	AccountDAO accountDAO;
-	private final List<Observer> observers = new ArrayList<>();
-	
+
 	public AbstractAccountService(){
 		accountDAO = createAccountDAO();
 	}
@@ -57,14 +57,16 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 		this.notifyObservers(new AccountEntryInfo(account, entry));
 	}
 
-
-
 	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
 		Account fromAccount = accountDAO.loadAccount(fromAccountNumber);
 		Account toAccount = accountDAO.loadAccount(toAccountNumber);
 		fromAccount.transferFunds(toAccount, amount, description);
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
+	}
+
+	public void refresDb() {
+		accountDAO.saveAccount(Collections.emptyList());
 	}
 
 	@Override

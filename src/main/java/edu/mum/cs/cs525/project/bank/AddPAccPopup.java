@@ -1,5 +1,6 @@
 package edu.mum.cs.cs525.project.bank;
 
+import edu.mum.cs.cs525.project.bank.model.AccountFactory;
 import edu.mum.cs.cs525.project.bank.model.CheckingAccount;
 import edu.mum.cs.cs525.project.bank.model.PersonalCustomer;
 import edu.mum.cs.cs525.project.bank.model.SavingAccount;
@@ -43,16 +44,14 @@ public class AddPAccPopup extends GuiForm {
         JTextField txtAccNumber = (JTextField) findViewById("txtAccNumber");
         JTextField txtName = (JTextField) findViewById("txtName");
         JTextField txtCity = (JTextField) findViewById("txtCity");
-
+        JTextField txtEmail = (JTextField) findViewById("txtEmail");
+        JTextField txtZip = (JTextField) findViewById("txtZip");
+        JTextField txtState = (JTextField) findViewById("txtState");
+        JTextField txtBirthDate = (JTextField) findViewById("txtBirthDate");
         JRadioButton checking_radio = (JRadioButton) findViewById("checking_radio");
-        Account account = null;
-        if (checking_radio.isSelected()){
-           account =  new CheckingAccount(txtAccNumber.getText(), new CheckingAccountInterestBehaviour());
-        } else {
-            account = new SavingAccount(txtAccNumber.getText(), new SavingAccountInterestBehaviour());
-        }
-        Owner owner = new PersonalCustomer(txtName.getText());
-        owner.setCity(txtCity.getText());
+
+        Account account = new AccountFactory().getAccount(checking_radio.isSelected() ? "Ch" : "S", txtAccNumber.getText());
+        Owner owner = new PersonalCustomer(txtName.getText(), txtCity.getText(), txtEmail.getText(), txtState.getText(), txtZip.getText(), txtBirthDate.getText());
 
         account.setOwner(owner);
         owner.addAccount(account);

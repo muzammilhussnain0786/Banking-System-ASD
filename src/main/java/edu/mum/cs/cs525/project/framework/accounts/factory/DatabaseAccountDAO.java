@@ -6,6 +6,7 @@ import edu.mum.cs.cs525.project.framework.observer.Observable;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class DatabaseAccountDAO implements AccountDAO, Observable {
@@ -14,6 +15,11 @@ public class DatabaseAccountDAO implements AccountDAO, Observable {
     @Override
     public void saveAccount(Account account) {
         dataAccess.saveAccount(account);
+    }
+
+    @Override
+    public void saveAccount(List<Account> accounts) {
+        dataAccess.saveAccounts(accounts);
     }
 
     @Override
