@@ -65,7 +65,7 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 		accountDAO.updateAccount(toAccount);
 	}
 
-	public void refresDb() {
+	public void refreshDb() {
 		accountDAO.saveAccount(Collections.emptyList());
 	}
 
@@ -84,7 +84,7 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 		Collection<Account> accounts = accountDAO.getAccounts();
 		StringBuilder report = new StringBuilder();
 		accounts.forEach(account -> {
-			report.append(account.toString()+"\n");
+			report.append(account.toString()).append("\n");
 		});
 		return report.toString();
 	}
