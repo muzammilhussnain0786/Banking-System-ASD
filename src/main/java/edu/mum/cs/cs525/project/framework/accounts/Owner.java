@@ -1,7 +1,5 @@
 package edu.mum.cs.cs525.project.framework.accounts;
 
-import edu.mum.cs.cs525.project.bank.rules.IEmailRule;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -69,7 +67,7 @@ public class Owner implements Serializable {
 		this.email = email;
 	}
 
-	public List<IEmailRule> getTheRules(AccountEntryInfo accountEntryInfo){
+	public List<IRule> getTheRules(AccountEntryInfo accountEntryInfo){
 		return new ArrayList<>();
 	}
 }

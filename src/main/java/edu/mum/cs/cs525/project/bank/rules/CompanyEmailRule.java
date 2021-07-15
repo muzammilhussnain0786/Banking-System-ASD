@@ -2,7 +2,7 @@ package edu.mum.cs.cs525.project.bank.rules;
 
 import edu.mum.cs.cs525.project.framework.accounts.AccountEntry;
 
-public class CompanyEmailRule implements IEmailRule {
+public class CompanyEmailRule extends IEmailRule {
 
     boolean isMatch;
     AccountEntry entry;

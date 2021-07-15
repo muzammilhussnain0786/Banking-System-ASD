@@ -1,7 +1,11 @@
 package edu.mum.cs.cs525.project.bank.rules;
 
-public interface IEmailRule {
+import edu.mum.cs.cs525.project.framework.accounts.IRule;
 
-    void execute();
-    boolean isMatch();
+public abstract class IEmailRule implements IRule {
+
+    @Override
+    public String getRuleType() {
+        return "email";
+    }
 }
