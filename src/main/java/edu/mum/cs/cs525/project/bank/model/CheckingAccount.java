@@ -13,7 +13,7 @@ public class CheckingAccount extends Account {
     }
 
     public String getAccountType(){
-        return "Ch";
+        return "Gold";
     }
 
     @Override
