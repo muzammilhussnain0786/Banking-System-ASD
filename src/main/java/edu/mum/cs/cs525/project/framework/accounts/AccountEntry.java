@@ -1,9 +1,12 @@
 package edu.mum.cs.cs525.project.framework.accounts;
 
+import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AccountEntry implements Serializable {
+public class AccountEntry implements Serializable, TableRow {
     private Date date;
     private double amount;
     private String description;
@@ -63,11 +66,16 @@ public class AccountEntry implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "AccountEntry{" +
-                "desc=" + (description.startsWith("d") ? "D" : "W") +
-                ", amount=" + amount +
-                ", date=" + date +
-                "}\n";
+    public Object[] row() {
+        return new String[]{new SimpleDateFormat("yyyy-MM-dd HH:mm").format(this.date), amount + "", amount < 0 ? "W" : "D"};
     }
+
+	@Override
+	public String toString() {
+		return "AccountEntry{" +
+				"desc=" + (description.startsWith("d") ? "D" : "W") +
+				", amount=" + amount +
+				", date=" + date +
+				"}\n";
+	}
 }

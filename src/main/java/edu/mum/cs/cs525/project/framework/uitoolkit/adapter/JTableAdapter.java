@@ -22,6 +22,10 @@ public class JTableAdapter extends JTable implements Observer<Account> {
                 this.jTableView.getWidth().intValue(), this.jTableView.getHeight().intValue());
     }
 
+    public void addRow(Object[] row){
+        model.addRow(row);
+    }
+
     @Override
     public void update(Account data) {
         Object[] row = (((TableRow) data)).row();

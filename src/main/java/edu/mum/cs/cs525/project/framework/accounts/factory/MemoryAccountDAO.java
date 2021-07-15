@@ -5,6 +5,7 @@ import edu.mum.cs.cs525.project.framework.accounts.Account;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class MemoryAccountDAO implements AccountDAO {
 	Collection<Account> accountlist = new ArrayList<Account>();
@@ -21,6 +22,11 @@ public class MemoryAccountDAO implements AccountDAO {
 	@Override
 	public void saveAccount(Account account) {
 		accountlist.add(account); // add the new
+	}
+
+	@Override
+	public void saveAccount(List<Account> accounts) {
+		accountlist.addAll(accounts);
 	}
 
 	public Account loadAccount(String accountNumber) {
