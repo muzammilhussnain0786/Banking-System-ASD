@@ -29,8 +29,6 @@ m
 =src/main/java/edu/mum/cs/cs525/project/bank/AddCAccPopup.java,a/7/a7d9ae494de33bd7bcff4fd1191d48b2aa1a17d5
 h
 8src/main/java/edu/mum/cs/cs525/project/ccard/CardUI.java,9/e/9ebc1318d6e90e645d8105d829007849f4a0e18c
-t
-Dsrc/main/java/edu/mum/cs/cs525/project/framework/accounts/Owner.java,6/e/6ec15796796f08a6665e8cb8845bed020e9165f9
 …
 Usrc/main/java/edu/mum/cs/cs525/project/framework/uitoolkit/composite/JButtonView.java,9/4/94eb80e6c11495a1fe94337edb1060fac93769ec
 „

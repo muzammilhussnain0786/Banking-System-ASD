@@ -76,9 +76,7 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	public String generateReports() {
 		Collection<Account> accounts = accountDAO.getAccounts();
 		StringBuilder report = new StringBuilder();
-		accounts.forEach(account -> {
-			report.append(account.toString()+"\n");
-		});
+		accounts.forEach(account -> report.append(account.toString()).append("\n"));
 		return report.toString();
 	}
 }

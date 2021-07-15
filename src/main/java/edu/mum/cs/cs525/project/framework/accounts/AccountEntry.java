@@ -61,5 +61,12 @@ public class AccountEntry implements Serializable {
 	public void setFromPersonName(String fromPersonName) {
 		this.fromPersonName = fromPersonName;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "AccountEntry{" +
+				"date=" + date +
+				", amount=" + amount +
+				'}';
+	}
 }

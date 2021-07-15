@@ -43,4 +43,14 @@ public class Owner implements Serializable {
 		accounts.add(account);
 
 	}
+
+	@Override
+	public String toString() {
+		return "Owner{" +
+				"id='" + id + '\'' +
+				", name='" + name + '\'' +
+				", city='" + city + '\'' +
+				", accounts=" + accounts.size() +
+				'}';
+	}
 }
