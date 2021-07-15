@@ -60,6 +60,7 @@ public abstract class GuiForm extends JFrame {
     public abstract String loadJsonFile() throws IOException, URISyntaxException;
 
     public abstract void setUIListeners();
+
     public void hook(){};
 
     private void inflateViews(){

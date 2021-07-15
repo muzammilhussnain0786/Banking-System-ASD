@@ -2,6 +2,7 @@ package edu.mum.cs.cs525.project.bank.observer;
 
 import edu.mum.cs.cs525.project.bank.model.Company;
 import edu.mum.cs.cs525.project.bank.model.PersonalCustomer;
+import edu.mum.cs.cs525.project.bank.rules.EmailRulesProcessor;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.AccountEntry;
 import edu.mum.cs.cs525.project.framework.accounts.AccountEntryInfo;
@@ -21,29 +22,25 @@ public class EmailSender implements Observer<AccountEntryInfo> {
         AccountEntry entry = data.getEntry();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Dear " + ac.getOwner().getName());
+        sb.append("Dear ").append(ac.getOwner().getName());
         sb.append("\n");
 
-        if (hasToSend(ac, entry)) {
+        if (EmailRulesProcessor.processEmailRules(ac.getOwner(), data)) {
             if (entry.getAmount() > 0)
-                sb.append("There is a deposit " + entry.getAmount() + " to account " + entry.getFromAccountNumber() + "( " + entry.getDescription() + ")");
+                sb.append("There is a deposit ").append(entry.getAmount()).append(" to account ").append(entry.getFromAccountNumber()).append("( ").append(entry.getDescription()).append(")");
 
             if (entry.getAmount() < 0)
-                sb.append("There is a withdraw " + entry.getAmount() + " from account " + entry.getFromAccountNumber() + entry.getFromAccountNumber() + "( " + entry.getDescription() + ")");
+                sb.append("There is a withdraw ").append(entry.getAmount()).append(" from account ").append(entry.getFromAccountNumber()).append(entry.getFromAccountNumber()).append("( ").append(entry.getDescription()).append(")");
             sb.append("\n");
-            sb.append("Account balance of  is " + ac.getBalance());
+            sb.append("Account balance of  is ").append(ac.getBalance());
             sb.append("\n");
             sb.append("Thank you");
             sb.append("\n");
             sb.append("ASD Bank");
 
             System.out.println("Email sent to: " + ac.getOwner().getEmail());
-            System.out.println("Email content: " + sb.toString());
+            System.out.println("Email content: " + sb);
         }
-    }
-
-    private boolean hasToSend(Account ac, AccountEntry entry) {
-        return ac.getOwner() instanceof Company || (ac.getOwner() instanceof PersonalCustomer && (entry.getAmount() > 400 || entry.getAmount() < -400) || ac.getBalance() + entry.getAmount() < 0);
     }
 
 }

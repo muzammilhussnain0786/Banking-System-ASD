@@ -76,4 +76,8 @@ public class Owner implements Serializable {
 				", accounts=" + accounts.size() +
 				'}';
 	}
+
+	public List<IRule> getTheRules(AccountEntryInfo accountEntryInfo){
+		return new ArrayList<>();
+	}
 }

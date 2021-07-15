@@ -39,7 +39,7 @@ public class AddBookPopup extends GuiForm {
         JTextField txtTitle = (JTextField) findViewById("txtTitle");
         JTextField txtAuthor = (JTextField) findViewById("txtAuthor");
 
-        Account account =  new BookAccount(txtIsbn.getText(),txtTitle.getText(), txtAuthor.getText(), "0");
+        Account account =  new BookAccount(txtIsbn.getText(),txtTitle.getText(), txtAuthor.getText());
         databaseAccountService.createAccount(account);
     }
 }
