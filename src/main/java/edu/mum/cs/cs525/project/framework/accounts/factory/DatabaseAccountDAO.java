@@ -5,9 +5,10 @@ import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 
-public class DatabaseAccountDAO implements AccountDAO, Observable<Account> {
+public class DatabaseAccountDAO implements AccountDAO, Observable {
     DataAccess dataAccess = DataAccess.getInstance();
 
     @Override
@@ -36,6 +37,7 @@ public class DatabaseAccountDAO implements AccountDAO, Observable<Account> {
 
     @Override
     public Collection<Account> getAccounts() {
-        return dataAccess.readAccountMap().values();
+        Map<String, Account> stringAccountMap = dataAccess.readAccountMap();
+        return stringAccountMap != null ? stringAccountMap.values(): Collections.emptyList();
     }
 }

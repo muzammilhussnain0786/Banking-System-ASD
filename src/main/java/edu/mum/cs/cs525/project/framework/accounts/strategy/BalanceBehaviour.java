@@ -1,6 +1,8 @@
 package edu.mum.cs.cs525.project.framework.accounts.strategy;
 
-public interface BalanceBehaviour {
+import java.io.Serializable;
+
+public interface BalanceBehaviour extends Serializable{
 
     double getResult(double balance);
 }

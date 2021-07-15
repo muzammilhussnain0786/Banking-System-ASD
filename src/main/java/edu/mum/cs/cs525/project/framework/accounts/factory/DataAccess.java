@@ -67,7 +67,7 @@ public class DataAccess {
     static void saveToStorage(StorageType type, Object ob) {
         ObjectOutputStream out = null;
         try {
-            Path path = Path.of(Objects.requireNonNull(DataAccess.class.getResource("/db/ACCOUNT")).toURI());
+            Path path = Path.of(Objects.requireNonNull(DataAccess.class.getResource("/db/" + type)).toURI());
             out = new ObjectOutputStream(Files.newOutputStream(path));
             out.writeObject(ob);
         } catch(IOException | URISyntaxException e) {
@@ -85,7 +85,7 @@ public class DataAccess {
         ObjectInputStream in = null;
         Object retVal = null;
         try {
-            Path path = Path.of(Objects.requireNonNull(DataAccess.class.getResource("/db/ACCOUNT")).toURI());
+            Path path = Path.of(Objects.requireNonNull(DataAccess.class.getResource("/db/" + type)).toURI());
             in = new ObjectInputStream(Files.newInputStream(path));
             retVal = in.readObject();
         } catch(Exception e) {

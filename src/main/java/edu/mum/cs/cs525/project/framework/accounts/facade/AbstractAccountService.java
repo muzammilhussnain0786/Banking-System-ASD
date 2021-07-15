@@ -1,12 +1,11 @@
 package edu.mum.cs.cs525.project.framework.accounts.facade;
 
 
-import edu.mum.cs.cs525.project.framework.accounts.Owner;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
-import edu.mum.cs.cs525.project.framework.accounts.strategy.BalanceBehaviour;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
+
 import edu.mum.cs.cs525.project.framework.proxy.LoggingInvocationHandler;
 import edu.mum.cs.cs525.project.framework.uitoolkit.TableRow;
 
@@ -16,7 +15,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-public abstract class AbstractAccountService implements IAccountService, Observable<Account> {
+public abstract class AbstractAccountService implements IAccountService, Observable {
 
 	AccountDAO accountDAO;
 	private final List<Observer> observers = new ArrayList<>();
@@ -39,8 +38,8 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	public void deposit(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
 		account.deposit(amount);
-		
 		accountDAO.updateAccount(account);
+		this.notifyObservers(account);
 	}
 
 	public Account getAccount(String accountNumber) {
@@ -56,6 +55,7 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 		Account account = accountDAO.loadAccount(accountNumber);
 		account.withdraw(amount);
 		accountDAO.updateAccount(account);
+		this.notifyObservers(account);
 	}
 
 
@@ -71,7 +71,11 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	@Override
 	public void executeBalanceBehaviour(String description) {
 		Collection<Account> accounts = accountDAO.getAccounts();
-		accounts.forEach(account -> account.executeBalanceBehaviour(description));
+		accounts.forEach(account -> {
+			account.executeBalanceBehaviour(description);
+			accountDAO.updateAccount(account);
+			this.notifyObservers(account);
+		});
 	}
 
 
