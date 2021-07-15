@@ -5,6 +5,9 @@ import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
+import edu.mum.cs.cs525.project.framework.proxy.LoggingInvocationHandler;
+
+import java.lang.reflect.Proxy;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,6 +35,9 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	public void deposit(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
 		account.deposit(amount);
+		AccountDAO  proxy = (AccountDAO ) Proxy.newProxyInstance(AccountDAO.class.getClassLoader(),
+    			new Class[] {AccountDAO.class }, new LoggingInvocationHandler(accountDAO));
+	    proxy.saveAccount(account);
 		accountDAO.updateAccount(account);
 		this.notifyObservers(account);
 	}
