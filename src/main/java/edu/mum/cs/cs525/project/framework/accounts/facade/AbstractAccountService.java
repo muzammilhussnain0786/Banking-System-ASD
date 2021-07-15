@@ -5,9 +5,14 @@ import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.AccountEntry;
 import edu.mum.cs.cs525.project.framework.accounts.AccountEntryInfo;
 import edu.mum.cs.cs525.project.framework.accounts.factory.AccountDAO;
+import edu.mum.cs.cs525.project.framework.accounts.factory.DatabaseAccountDAO;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
+import edu.mum.cs.cs525.project.framework.proxy.LoggingInvocationHandler;
+import edu.mum.cs.cs525.project.framework.proxy.ProxyFactory;
+import edu.mum.cs.cs525.project.framework.proxy.WithdrawInvocationHandler;
 
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -17,7 +22,11 @@ import java.util.List;
 public abstract class AbstractAccountService implements IAccountService, Observable {
 
 	AccountDAO accountDAO;
-
+	
+	private final List<Observer> observers = new ArrayList<>();
+	
+	AccountDAO proxyFactory = (AccountDAO)ProxyFactory.newInstance(new DatabaseAccountDAO());
+	
 	public AbstractAccountService(){
 		accountDAO = createAccountDAO();
 	}
@@ -26,15 +35,18 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 
 	public Account createAccount(Account account) {
 
-		accountDAO.saveAccount(account);
+		AccountDAO  proxy = (AccountDAO ) Proxy.newProxyInstance(AccountDAO.class.getClassLoader(),
+    			new Class[] {AccountDAO.class }, new LoggingInvocationHandler(accountDAO));
+	    proxy.saveAccount(account);
 		this.notifyObservers(account);
 		return account;
 	}
 
 	public void deposit(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
+
 		AccountEntry entry = account.deposit(amount);
-		accountDAO.updateAccount(account);
+		proxyFactory.updateAccount(account);
 		this.notifyObservers(account);
 		AccountEntryInfo data = new AccountEntryInfo(account, entry);
 		this.notifyObservers(data);
@@ -52,14 +64,18 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 	public void withdraw(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
 		AccountEntry entry = account.withdraw(amount);
-		accountDAO.updateAccount(account);
+
+		AccountDAO  proxy = (AccountDAO ) Proxy.newProxyInstance(AccountDAO.class.getClassLoader(),
+    			new Class[] {AccountDAO.class }, new WithdrawInvocationHandler(accountDAO));
+        proxy.updateAccount(account);
+
 		this.notifyObservers(account);
 		this.notifyObservers(new AccountEntryInfo(account, entry));
 	}
 
 	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
-		Account fromAccount = accountDAO.loadAccount(fromAccountNumber);
-		Account toAccount = accountDAO.loadAccount(toAccountNumber);
+		Account fromAccount = proxyFactory.loadAccount(fromAccountNumber);
+		Account toAccount = proxyFactory.loadAccount(toAccountNumber);
 		fromAccount.transferFunds(toAccount, amount, description);
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
