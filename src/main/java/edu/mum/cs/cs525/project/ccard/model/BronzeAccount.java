@@ -19,4 +19,11 @@ public class BronzeAccount extends Account {
     public Object[] row() {
         return new String[]{this.getOwner().getName(), this.getAccountNumber(), this.getExpDate(), this.getAccountType(),  String.valueOf(this.getBalance())};
     }
+
+    @Override
+    public String toString() {
+        return "BronzeAccount{" +
+                "interest=" + interest +
+                '}';
+    }
 }

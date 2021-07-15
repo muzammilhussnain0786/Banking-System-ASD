@@ -6,6 +6,9 @@ import java.lang.reflect.InvocationTargetException;
 
 public class Home {
 
+    // 1) add book store button
+    // 2) refresh db button
+
     public static void run(Class<?> classGuiForm, String[] args) {
         try {
             Object uiInstance = Class.forName(classGuiForm.getName()).getDeclaredConstructor().newInstance();

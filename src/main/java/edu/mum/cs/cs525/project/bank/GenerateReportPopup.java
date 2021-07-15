@@ -24,7 +24,7 @@ public class GenerateReportPopup extends GuiForm {
 
     @Override
     public String loadJsonFile() throws IOException, URISyntaxException {
-        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/depositPopup.json")).toURI()));
+        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/generateReports.json")).toURI()));
     }
 
     @Override
