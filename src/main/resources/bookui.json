@@ -16,28 +16,37 @@
         "height" : 33
       },
       {
+        "id" : "generate_report",
+        "type" : "JButton",
+        "title" : "Generate Report",
+        "x" : 260,
+        "y" : 20,
+        "width":192,
+        "height": 33
+      },
+      {
         "id" : "add_copy_btn",
         "type" : "JButton",
-        "title" : "Add Copy",
+        "title" : "AddCopy",
         "x" : 468,
-        "y" : 104,
+        "y" : 150,
         "width":96,
         "height": 33
       },
       {
         "id" : "remove_copy_btn",
         "type" : "JButton",
-        "title" : "Dispense Copy",
-        "x" : 448,
-        "y" : 20,
-        "width":106,
+        "title" : "Dispense",
+        "x" : 468,
+        "y" : 100,
+        "width":96,
         "height": 33
       },
       {
         "id" : "exit",
         "type" : "JButton",
         "title" : "Exit",
-        "x" : 448,
+        "x" : 468,
         "y" : 248,
         "width":96,
         "height": 33

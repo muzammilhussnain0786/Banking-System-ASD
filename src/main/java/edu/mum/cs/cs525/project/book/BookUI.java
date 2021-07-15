@@ -37,6 +37,12 @@ public class BookUI extends GuiForm {
             DispenseBookPopup accPopup = new DispenseBookPopup(getSelectedAccountNumber());
             accPopup.start();
         });
+
+        ((JButton) findViewById("generate_report")).addActionListener(e -> {
+            GenerateBookReportPopup accPopup = new GenerateBookReportPopup(getSelectedAccountNumber());
+            accPopup.start();
+        });
+
         ((JButton) findViewById("add_copy_btn")).addActionListener(e -> {
             AddCopyPopup accPopup = new AddCopyPopup(getSelectedAccountNumber());
             accPopup.start();
