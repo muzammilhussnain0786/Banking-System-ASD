@@ -13,7 +13,7 @@ public class CustomerEmailRule extends IEmailRule {
 
     @Override
     public void execute() {
-
+        isMatch = accountEntry.getAmount() > 400;
     }
 
     @Override

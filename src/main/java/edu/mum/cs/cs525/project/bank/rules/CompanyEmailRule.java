@@ -13,7 +13,7 @@ public class CompanyEmailRule extends IEmailRule {
 
     @Override
     public void execute() {
-
+        isMatch = true;
     }
 
     @Override
