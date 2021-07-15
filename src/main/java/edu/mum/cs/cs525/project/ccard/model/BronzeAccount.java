@@ -1,14 +1,11 @@
 package edu.mum.cs.cs525.project.ccard.model;
 
-import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.strategy.BalanceBehaviour;
 
-public class BronzeAccount extends Account {
-
-    private Double interest = 0.1;
+public class BronzeAccount extends CreditAccount {
 
     public BronzeAccount(String accountNumber, BalanceBehaviour balanceBehaviour) {
-        super(accountNumber, balanceBehaviour);
+        super(accountNumber, balanceBehaviour, 0.1);
     }
 
     public String getAccountType(){
@@ -18,11 +15,6 @@ public class BronzeAccount extends Account {
     @Override
     public Object[] row() {
         return new String[]{this.getAccountNumber(), this.getOwner().getName(), this.getExpDate(), this.getAccountType(),  String.valueOf(this.getBalance())};
-    }
-
-    @Override
-    public double getBalance() {
-        return super.getBalance()*interest;
     }
 
     @Override

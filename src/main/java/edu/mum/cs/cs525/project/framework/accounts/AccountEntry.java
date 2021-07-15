@@ -73,7 +73,7 @@ public class AccountEntry implements Serializable, TableRow {
 	@Override
 	public String toString() {
 		return "AccountEntry{" +
-				"desc=" + (description.startsWith("d") ? "D" : "W") +
+				"desc=" + description +
 				", amount=" + amount +
 				", date=" + date +
 				"}\n";

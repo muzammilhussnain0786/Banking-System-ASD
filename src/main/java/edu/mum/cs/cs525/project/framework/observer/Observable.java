@@ -10,7 +10,7 @@ public interface Observable {
     Map<Class<?>, List<Observer>> observerHashmap = new HashMap<>();
 
 
-    default void attach(Class<?> name, Observer<?> observer){
+    default void attach(Class<?> name, Observer<?> observer) {
         observerHashmap.computeIfAbsent(name, k -> new ArrayList<>());
         observerHashmap.get(name).add(observer);
     }
@@ -18,7 +18,8 @@ public interface Observable {
 
     default void notifyObservers(Object data) {
         List<Observer> observers = observerHashmap.get(data.getClass());
-        observers.forEach(classObserver -> classObserver.update(data)
-    );
+        if (observers != null && observers.size()>0)
+            observers.forEach(classObserver -> classObserver.update(data)
+            );
     }
 }

@@ -34,6 +34,5 @@ public class DepositCreditPopup extends GuiForm {
             DatabaseAccountService.getInstance().deposit(accountNumber, amo);
             exitApplication();
         });
-
     }
 }

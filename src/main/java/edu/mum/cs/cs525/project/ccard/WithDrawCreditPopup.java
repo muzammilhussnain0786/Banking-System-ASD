@@ -22,7 +22,7 @@ public class WithDrawCreditPopup extends GuiForm {
 
     @Override
     public String loadJsonFile() throws IOException, URISyntaxException {
-        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/withDrawPopup.json")).toURI()));
+        return Files.readString(Path.of(Objects.requireNonNull(getClass().getResource("/withdrawPopup.json")).toURI()));
     }
 
     @Override

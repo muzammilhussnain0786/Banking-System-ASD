@@ -1,5 +1,6 @@
 package edu.mum.cs.cs525.project.ccard;
 
+import edu.mum.cs.cs525.project.ccard.model.CreditAccount;
 import edu.mum.cs.cs525.project.framework.accounts.Account;
 import edu.mum.cs.cs525.project.framework.accounts.facade.DatabaseAccountService;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
@@ -49,7 +50,7 @@ public class GenerateCCReportPopup extends GuiForm {
             });
 
             // new balance = previous balance – total credits + total charges + MI * (previous balance – total credits)
-            double newBal = previousMonth.get() - totalCharges.get() + totalCredits.get() + (account.getBalance());// +MI
+            double newBal = previousMonth.get() - totalCharges.get() + totalCredits.get() + ((CreditAccount)account).getMI() * previousMonth.get() - totalCredits.get();// +MI
             newBalance.append(newBal);
 
             var horizontalDivider = "-------------------\n";
@@ -59,14 +60,13 @@ public class GenerateCCReportPopup extends GuiForm {
                     .append("Total Credits: \n")
                     .append(horizontalDivider)
                     .append(withdraw)
-                    .append("Total Credits: \n")
+                    .append("Total Charge: \n")
                     .append(horizontalDivider)
                     .append(deposit)
                     .append("New Balance: \n")
                     .append(horizontalDivider)
                     .append(newBalance);
         });
-//        accounts.forEach(account -> report.append("\n"));
         return report.toString();
     }
 

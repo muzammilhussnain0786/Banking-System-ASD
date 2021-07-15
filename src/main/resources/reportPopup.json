@@ -1,8 +1,8 @@
 {
   "id": "main_panel",
   "type": "JPanel",
-  "width": 405,
-  "height": 367,
+  "width": 750,
+  "height": 500,
   "x": 0,
   "y": 0,
   "children": [
@@ -12,14 +12,14 @@
       "title": "",
       "x": 0,
       "y": 0,
-      "width": 355,
-      "height": 237
+      "width": 720,
+      "height": 480
     },
     {
       "id": "btnOk",
       "type": "JButton",
       "title": "OK",
-      "x": 156,
+      "x": 256,
       "y": 276,
       "width": 96,
       "height": 24
