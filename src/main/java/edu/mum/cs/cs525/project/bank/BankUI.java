@@ -64,8 +64,7 @@ public class BankUI extends GuiForm {
     private String getSelectedAccountNumber() {
         JTableAdapter acc_table = (JTableAdapter) findViewById("acc_table");
         int rowIndex = acc_table.getSelectedRow();
-        String accountNumber = acc_table.getModel().getValueAt(rowIndex, 0).toString();
-        return accountNumber;
+        return acc_table.getModel().getValueAt(rowIndex, 0).toString();
     }
 
     @Override
