@@ -1,6 +1,7 @@
 package edu.mum.cs.cs525.project.home;
 
 import edu.mum.cs.cs525.project.bank.*;
+import edu.mum.cs.cs525.project.book.BookUI;
 import edu.mum.cs.cs525.project.ccard.CardApplication;
 import edu.mum.cs.cs525.project.ccard.CardUI;
 import edu.mum.cs.cs525.project.framework.uitoolkit.GuiForm;
@@ -36,6 +37,11 @@ public class HomeUI extends GuiForm {
         ((JButton) findViewById("credit_card_system_btn")).addActionListener(e -> {
             CardUI cardUI = new CardUI();
             cardUI.start();
+        });
+
+        ((JButton) findViewById("book_system_btn")).addActionListener(e -> {
+            BookUI bookUI = new BookUI();
+            bookUI.start();
         });
 
     }

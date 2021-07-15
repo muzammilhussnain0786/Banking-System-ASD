@@ -17,7 +17,7 @@ public class BronzeAccount extends Account {
 
     @Override
     public Object[] row() {
-        return new String[]{this.getOwner().getName(), this.getAccountNumber(), this.getExpDate(), this.getAccountType(),  String.valueOf(this.getBalance())};
+        return new String[]{this.getAccountNumber(), this.getOwner().getName(), this.getExpDate(), this.getAccountType(),  String.valueOf(this.getBalance())};
     }
 
     @Override
