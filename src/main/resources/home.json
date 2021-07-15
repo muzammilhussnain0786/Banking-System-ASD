@@ -36,6 +36,15 @@
         "height": 33
       },
       {
+        "id" : "refreshDb",
+        "type" : "JButton",
+        "title" : "Refresh Db",
+        "x" : 24,
+        "y" : 248,
+        "width":96,
+        "height": 33
+      },
+      {
         "id" : "exitHome",
         "type" : "JButton",
         "title" : "Exit",

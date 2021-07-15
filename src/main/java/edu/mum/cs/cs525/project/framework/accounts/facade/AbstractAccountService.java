@@ -9,20 +9,22 @@ import edu.mum.cs.cs525.project.framework.accounts.factory.DatabaseAccountDAO;
 import edu.mum.cs.cs525.project.framework.observer.Observable;
 import edu.mum.cs.cs525.project.framework.observer.Observer;
 import edu.mum.cs.cs525.project.framework.proxy.LoggingInvocationHandler;
-import edu.mum.cs.cs525.project.framework.proxy.DepositInvocationHandler;
 import edu.mum.cs.cs525.project.framework.proxy.ProxyFactory;
 import edu.mum.cs.cs525.project.framework.proxy.WithdrawInvocationHandler;
 
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
 public abstract class AbstractAccountService implements IAccountService, Observable {
 
 	AccountDAO accountDAO;
+	
 	private final List<Observer> observers = new ArrayList<>();
+	
 	AccountDAO proxyFactory = (AccountDAO)ProxyFactory.newInstance(new DatabaseAccountDAO());
 	
 	public AbstractAccountService(){
@@ -71,13 +73,16 @@ public abstract class AbstractAccountService implements IAccountService, Observa
 		this.notifyObservers(new AccountEntryInfo(account, entry));
 	}
 
-
 	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
 		Account fromAccount = proxyFactory.loadAccount(fromAccountNumber);
 		Account toAccount = proxyFactory.loadAccount(toAccountNumber);
 		fromAccount.transferFunds(toAccount, amount, description);
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
+	}
+
+	public void refresDb() {
+		accountDAO.saveAccount(Collections.emptyList());
 	}
 
 	@Override

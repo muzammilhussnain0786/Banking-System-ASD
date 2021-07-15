@@ -52,14 +52,9 @@ public class BankUI extends GuiForm {
         });
 
         ((JButton) findViewById("generate_report")).addActionListener(e -> {
-            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
+            AccountStatementPopup accPopup = new AccountStatementPopup(getSelectedAccountNumber());
             accPopup.start();
         });
-
-//        ((JButton) findViewById("report_btn")).addActionListener(e -> {
-//            DepositPopup accPopup = new DepositPopup(getSelectedAccountNumber());
-//            accPopup.start();
-//        });
 
         ((JButton) findViewById("add_interest_btn")).addActionListener(e -> {
             DatabaseAccountService.getInstance().executeBalanceBehaviour("");
@@ -69,8 +64,7 @@ public class BankUI extends GuiForm {
     private String getSelectedAccountNumber() {
         JTableAdapter acc_table = (JTableAdapter) findViewById("acc_table");
         int rowIndex = acc_table.getSelectedRow();
-        String accountNumber = acc_table.getModel().getValueAt(rowIndex, 0).toString();
-        return accountNumber;
+        return acc_table.getModel().getValueAt(rowIndex, 0).toString();
     }
 
     @Override
