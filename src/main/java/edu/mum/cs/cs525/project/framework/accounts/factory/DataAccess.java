@@ -1,7 +1,6 @@
 package edu.mum.cs.cs525.project.framework.accounts.factory;
 
 import edu.mum.cs.cs525.project.framework.accounts.Account;
-import edu.mum.cs.cs525.project.framework.accounts.Owner;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -35,14 +34,6 @@ public class DataAccess {
         return (Map<String,Account>) readFromStorage(StorageType.ACCOUNT);
     }
 
-    public Map<String, Owner> readOwner() {
-        return (Map<String, Owner>) readFromStorage(StorageType.OWNER);
-    }
-
-    public List<Owner> getOwners() {
-        return (List<Owner>) readFromStorage(StorageType.OWNER);
-    }
-
     public void saveAccount(Account member) {
         Map<String, Account> mems = readAccountMap();
         if (mems == null){
@@ -53,15 +44,10 @@ public class DataAccess {
         saveToStorage(StorageType.ACCOUNT, mems);
     }
 
-    public static void saveAccounts(List<Account> accounts) {
-        HashMap<String, Account> books = new HashMap<String, Account>();
-        accounts.forEach(book -> books.put(book.getAccountNumber(), book));
-        saveToStorage(StorageType.ACCOUNT, books);
-    }
-    public static void saveOwners(List<Owner> userList) {
-        HashMap<String, Owner> users = new HashMap<String, Owner>();
-        userList.forEach(user -> users.put(user.getId(), user));
-        saveToStorage(StorageType.OWNER, users);
+    public void saveAccounts(List<Account> accounts) {
+        Map<String, Account> account = new HashMap<>();
+        accounts.forEach(book -> account.put(book.getAccountNumber(), book));
+        saveToStorage(StorageType.ACCOUNT, account);
     }
 
     static void saveToStorage(StorageType type, Object ob) {
@@ -76,7 +62,9 @@ public class DataAccess {
             if(out != null) {
                 try {
                     out.close();
-                } catch(Exception e) {}
+                } catch(Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
     }
@@ -89,7 +77,7 @@ public class DataAccess {
             in = new ObjectInputStream(Files.newInputStream(path));
             retVal = in.readObject();
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             if(in != null) {
                 try {
